@@ -45,6 +45,19 @@ export const SOCIAL_FACEBOOK  = '' // set to your Facebook page URL, or leave bl
 export const SOCIAL_YOUTUBE   = '' // set to your YouTube channel URL, or leave blank to hide
 export const SOCIAL_TWITTER   = '' // set to your Twitter/X URL, or leave blank to hide
 
+// ── Robot Events Integration ─────────────────────────────────
+/**
+ * Team number prefixes for all Creek Robotics teams.
+ * Every team registered on robotevents.com whose number starts with one of
+ * these prefixes will be included in schedule and standings lookups.
+ *
+ * VEX team numbers are like "45434A", "45434B", etc., so listing the
+ * numeric prefix (without letter suffix) matches all robots on a program.
+ *
+ * Add additional prefixes here if new programs are created.
+ */
+export const TEAM_NUMBERS = ['45434']
+
 // ── Season ──────────────────────────────────────────────────
 /** Current competition year label, e.g. "2025–26" */
 export const CURRENT_SEASON_YEAR = '2025–26'

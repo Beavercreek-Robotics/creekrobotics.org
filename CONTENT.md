@@ -143,8 +143,8 @@ export const BOARD = {
 }
 ```
 
-#### Competition schedule
-Update the `COMPETITION_SCHEDULE` array with this season's dates and event names:
+#### Competition schedule (static fallback)
+The `COMPETITION_SCHEDULE` array in `src/config/club.js` is used as a **fallback** when the Robot Events API is unavailable or returns no results.  Update it to reflect the current season so the site still shows accurate dates even when offline:
 ```js
 export const COMPETITION_SCHEDULE = [
   { date: '10/25/25', name: 'North Union High School Qualifier', location: '', status: 'upcoming' },
@@ -152,6 +152,20 @@ export const COMPETITION_SCHEDULE = [
 ]
 ```
 Status values: `'upcoming'` | `'completed'` | `'tbd'`
+
+#### Team number prefixes (Robot Events integration)
+`TEAM_NUMBERS` in `src/config/club.js` controls which teams are looked up on [robotevents.com](https://www.robotevents.com).  Every team whose robot-events number *starts with* one of these prefixes is included in live schedule lookups.
+
+```js
+export const TEAM_NUMBERS = ['45434']   // add more prefixes as new programs are created
+```
+
+The live schedule is fetched automatically from the [Robot Events API v2](https://www.robotevents.com/api/v2) on page load.  If the fetch succeeds the home page shows a green **Live** badge next to the schedule heading; if it fails or returns nothing it silently falls back to `COMPETITION_SCHEDULE`.
+
+To enable an API key (which removes rate-limiting):
+1. Copy `.env.example` → `.env.local`
+2. Set `VITE_ROBOTEVENTS_API_KEY=<your-token>`
+3. For GitHub Actions deployments add the secret as `VITE_ROBOTEVENTS_API_KEY` in your repo/org secrets.
 
 #### Sponsorship tiers
 Edit amounts, add/remove tiers, or update benefits in `SPONSORSHIP_TIERS`.
@@ -194,7 +208,9 @@ Find the `<HeroSection>` tag near the top of the `<template>` section:
 ```
 
 #### Competition schedule
-Find the `<ul class="competition-list">` block and update the competition dates, names, and statuses.
+The competition dates shown on the home page are fetched live from the Robot Events API using the `TEAM_NUMBERS` prefixes in `src/config/club.js`.  If the API is unreachable the page automatically falls back to the static `COMPETITION_SCHEDULE` array in the same config file.
+
+To force static content only, simply clear `TEAM_NUMBERS` or leave the API key unset — the page will always display whatever is in `COMPETITION_SCHEDULE`.
 
 #### Achievements list
 Find `<ul class="achievement-list">` and update the list items.

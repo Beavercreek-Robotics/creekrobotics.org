@@ -84,12 +84,26 @@
           <div class="season-card">
             <div class="season-card-header">
               <span class="season-badge">Schedule</span>
-              <h3>Competition Dates</h3>
+              <h3>
+                Competition Dates
+                <span v-if="eventsLoading" class="live-badge live-badge-loading" title="Loading live data…">⟳</span>
+                <span v-else-if="usingLiveData" class="live-badge live-badge-live" title="Live data from Robot Events">Live</span>
+              </h3>
             </div>
-            <ul class="competition-list">
-              <li v-for="comp in COMPETITION_SCHEDULE.slice(0, 5)" :key="comp.date">
+            <div v-if="eventsLoading" class="events-loading">
+              <span class="loading-spinner" aria-label="Loading competition schedule…"></span>
+              <span>Loading schedule…</span>
+            </div>
+            <ul v-else class="competition-list">
+              <li v-for="comp in schedule.slice(0, 5)" :key="`${comp.date}-${comp.name}-${comp.location}`">
                 <span class="comp-date">{{ comp.date }}</span>
-                <span class="comp-name">{{ comp.name }}</span>
+                <component
+                  :is="comp.url ? 'a' : 'span'"
+                  :href="comp.url || undefined"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="comp-name"
+                >{{ comp.name }}</component>
                 <span class="comp-status" :class="`status-${comp.status}`">{{ comp.status }}</span>
               </li>
             </ul>
@@ -155,12 +169,14 @@ import {
   CURRENT_SEASON_YEAR,
   CURRENT_GAME_NAME,
   TEAM_STATS,
-  COMPETITION_SCHEDULE,
   COMPETITION_CALENDAR_LINK,
   COMPETITION_CALENDAR_LABEL,
 } from '../config/club.js'
+import { useRobotEvents } from '../composables/useRobotEvents.js'
 
 const stats = TEAM_STATS
+
+const { schedule, loading: eventsLoading, usingLiveData } = useRobotEvents()
 
 const audienceCards = [
   {
@@ -404,6 +420,58 @@ const audienceCards = [
 .status-upcoming { background: #c6f6d5; color: #276749; }
 .status-tbd { background: #feebc8; color: #7b341e; }
 .status-completed { background: #bee3f8; color: #2a69ac; }
+
+/* Live data badge */
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 20px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.live-badge-live {
+  background: #c6f6d5;
+  color: #276749;
+}
+
+.live-badge-loading {
+  background: #feebc8;
+  color: #7b341e;
+  animation: spin 1.2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Loading placeholder */
+.events-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.25rem 0;
+  color: var(--color-gray);
+  font-size: 0.875rem;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--color-light-2);
+  border-top-color: var(--color-navy);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
 
 .see-all-link {
   display: inline-block;
