@@ -120,7 +120,7 @@
               <p>
                 Our {{ CURRENT_SEASON_YEAR }} robot is designed for the
                 <strong>{{ CURRENT_GAME_NAME }}</strong> challenge.
-                <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" style="color: var(--color-navy); font-weight: 600;">
+                <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" style="color: var(--color-red); font-weight: 600;">
                   View game details →
                 </a>
               </p>
@@ -227,10 +227,10 @@ const audienceCards = [
 }
 
 .mission-statement {
-  color: var(--color-navy) !important;
+  color: var(--color-dark) !important;
   font-size: 1rem;
-  background: rgba(26, 54, 93, 0.05);
-  border-left: 4px solid var(--color-gold);
+  background: rgba(232, 102, 26, 0.06);
+  border-left: 4px solid var(--color-red);
   padding: 1rem 1.25rem;
   border-radius: 0 8px 8px 0;
 }
@@ -243,12 +243,12 @@ const audienceCards = [
 .about-image img {
   max-width: 360px;
   width: 100%;
-  filter: drop-shadow(0 8px 24px rgba(26, 54, 93, 0.15));
+  filter: drop-shadow(0 8px 24px rgba(232, 102, 26, 0.15));
 }
 
 /* Stats */
 .stats-section {
-  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, #2e2e2e 100%);
 }
 
 .stats-grid {
@@ -366,8 +366,8 @@ const audienceCards = [
   white-space: nowrap;
 }
 
-.season-badge-gold { background: var(--color-gold); color: var(--color-navy); }
-.season-badge-red { background: var(--color-red); }
+.season-badge-gold { background: var(--color-red); color: var(--color-white); }
+.season-badge-red { background: var(--color-gray-dark); }
 
 .competition-list {
   display: flex;
@@ -409,7 +409,7 @@ const audienceCards = [
   display: inline-block;
   margin-top: 0.75rem;
   font-size: 0.85rem;
-  color: var(--color-navy-light);
+  color: var(--color-red);
   font-weight: 600;
   text-decoration: none;
 }

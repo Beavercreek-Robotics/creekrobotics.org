@@ -3,22 +3,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <RouterLink to="/" class="brand-link" @click="closeMenu">
-        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40">
-          <rect x="8" y="14" width="32" height="24" rx="5" fill="#d69e2e"/>
-          <rect x="22" y="5" width="4" height="9" rx="2" fill="#d69e2e"/>
-          <circle cx="24" cy="4" r="4" fill="#c53030"/>
-          <rect x="13" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-          <rect x="27" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-          <circle cx="16" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-          <circle cx="30" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-          <rect x="15" y="30" width="18" height="4" rx="2" fill="#c53030"/>
-          <rect x="19" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <rect x="23" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <rect x="27" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <circle cx="8" cy="24" r="3" fill="#c53030"/>
-          <circle cx="40" cy="24" r="3" fill="#c53030"/>
-          <rect x="19" y="38" width="10" height="5" rx="2" fill="#d69e2e"/>
-        </svg>
+        <img src="/logo.svg" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
         <div class="brand-text">
           <span class="brand-name">{{ CLUB_NAME }}</span>
           <span class="brand-subtitle">{{ CLUB_TAGLINE }}</span>
@@ -107,7 +92,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 
 .brand-subtitle {
   font-size: 0.7rem;
-  color: var(--color-gold);
+  color: var(--color-red);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -136,8 +121,8 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 }
 
 .nav-link.router-link-active {
-  color: var(--color-gold);
-  background-color: rgba(214, 158, 46, 0.1);
+  color: var(--color-red);
+  background-color: rgba(232, 102, 26, 0.12);
 }
 
 .btn-join {
@@ -156,9 +141,9 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 }
 
 .btn-join:hover {
-  background-color: #9b2c2c;
+  background-color: #c45412;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(197, 48, 48, 0.4);
+  box-shadow: 0 4px 12px rgba(232, 102, 26, 0.4);
 }
 
 .hamburger {

@@ -7,22 +7,7 @@
           <!-- Brand column -->
           <div class="footer-brand">
             <div class="brand-logo">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="44" height="44">
-                <rect x="8" y="14" width="32" height="24" rx="5" fill="#d69e2e"/>
-                <rect x="22" y="5" width="4" height="9" rx="2" fill="#d69e2e"/>
-                <circle cx="24" cy="4" r="4" fill="#c53030"/>
-                <rect x="13" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-                <rect x="27" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-                <circle cx="16" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-                <circle cx="30" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-                <rect x="15" y="30" width="18" height="4" rx="2" fill="#c53030"/>
-                <rect x="19" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-                <rect x="23" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-                <rect x="27" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-                <circle cx="8" cy="24" r="3" fill="#c53030"/>
-                <circle cx="40" cy="24" r="3" fill="#c53030"/>
-                <rect x="19" y="38" width="10" height="5" rx="2" fill="#d69e2e"/>
-              </svg>
+              <img src="/logo.svg" alt="Beavercreek Robotics Club logo" width="52" height="52" />
               <div>
                 <p class="brand-name">{{ CLUB_NAME }}</p>
                 <p class="brand-subtitle">{{ CLUB_TAGLINE }} | Beavercreek High School</p>
@@ -161,7 +146,7 @@ import {
 
 .brand-subtitle {
   font-size: 0.75rem;
-  color: var(--color-gold);
+  color: var(--color-red);
   font-weight: 500;
   margin-top: 0.1rem;
 }
@@ -191,8 +176,8 @@ import {
 }
 
 .social-link:hover {
-  background-color: var(--color-gold);
-  color: var(--color-navy);
+  background-color: var(--color-red);
+  color: var(--color-white);
   transform: translateY(-2px);
 }
 
@@ -201,7 +186,7 @@ import {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--color-gold);
+  color: var(--color-red);
   margin-bottom: 1.25rem;
 }
 
@@ -219,7 +204,7 @@ import {
 }
 
 .footer-links a:hover {
-  color: var(--color-gold);
+  color: var(--color-red);
 }
 
 .footer-contact {
@@ -239,7 +224,7 @@ import {
 .contact-item svg {
   flex-shrink: 0;
   margin-top: 2px;
-  color: var(--color-gold);
+  color: var(--color-red);
 }
 
 .footer-bottom {
@@ -266,7 +251,7 @@ import {
 }
 
 .footer-email {
-  color: var(--color-gold);
+  color: var(--color-red);
   text-decoration: none;
 }
 

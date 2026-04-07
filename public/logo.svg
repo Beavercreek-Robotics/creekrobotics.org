@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Dark circular background -->
+  <circle cx="100" cy="100" r="98" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+
+  <!-- Vertical divider line (subtle) -->
+  <line x1="100" y1="14" x2="100" y2="162" stroke="#3a3a3a" stroke-width="1.5"/>
+
+  <!-- ===== LEFT HALF — TIGER (orange) ===== -->
+  <!-- Tiger head base -->
+  <path d="M100,20 C76,20 56,34 46,54 C38,68 36,84 40,100 C44,116 54,130 68,138 C78,144 88,147 100,147 Z" fill="#e8661a"/>
+  <!-- Tiger ear left -->
+  <path d="M46,54 C40,44 36,36 42,28 C48,24 56,28 60,34 Z" fill="#e8661a"/>
+  <!-- Tiger ear inner left -->
+  <path d="M47,50 C44,43 42,38 46,34 C50,31 54,34 57,39 Z" fill="#c44d0e"/>
+  <!-- Tiger face markings / stripes -->
+  <path d="M68,60 C64,64 62,70 64,76" stroke="#c44d0e" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M60,80 C56,82 54,87 56,92" stroke="#c44d0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- Tiger eye — lightning bolt shape -->
+  <path d="M74,68 L70,78 L77,76 L72,90 L80,78 L73,80 Z" fill="#ffcc44"/>
+  <!-- Tiger eye outline -->
+  <ellipse cx="74" cy="79" rx="10" ry="12" fill="none" stroke="#c44d0e" stroke-width="1.5"/>
+  <!-- Tiger nose -->
+  <path d="M82,105 L78,110 L82,108 L86,110 Z" fill="#c44d0e"/>
+  <!-- Tiger mouth -->
+  <path d="M78,112 C80,118 84,120 88,118" stroke="#c44d0e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Tiger cheek fur lines -->
+  <path d="M60,100 L75,105" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M58,107 L74,110" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M60,114 L74,115" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  <!-- ===== RIGHT HALF — ROBOT (gray) ===== -->
+  <!-- Robot head base -->
+  <path d="M100,20 C124,20 144,34 154,54 C162,68 164,84 160,100 C156,116 146,130 132,138 C122,144 112,147 100,147 Z" fill="#808080"/>
+  <!-- Robot ear right -->
+  <path d="M154,54 C160,44 164,36 158,28 C152,24 144,28 140,34 Z" fill="#707070"/>
+  <!-- Robot antenna -->
+  <line x1="150" y1="30" x2="150" y2="18" stroke="#a0a0a0" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="150" cy="15" r="4" fill="#e8661a"/>
+  <!-- Robot eye — gear/mechanical -->
+  <circle cx="126" cy="79" r="12" fill="#1a1a1a" stroke="#555" stroke-width="2"/>
+  <circle cx="126" cy="79" r="7" fill="#404040"/>
+  <!-- Gear teeth on robot eye -->
+  <circle cx="126" cy="65" r="3" fill="#666"/>
+  <circle cx="126" cy="93" r="3" fill="#666"/>
+  <circle cx="112" cy="79" r="3" fill="#666"/>
+  <circle cx="140" cy="79" r="3" fill="#666"/>
+  <circle cx="116" cy="69" r="2.5" fill="#666"/>
+  <circle cx="136" cy="69" r="2.5" fill="#666"/>
+  <circle cx="116" cy="89" r="2.5" fill="#666"/>
+  <circle cx="136" cy="89" r="2.5" fill="#666"/>
+  <!-- Gear center highlight -->
+  <circle cx="126" cy="79" r="3" fill="#e8661a"/>
+  <!-- Robot panel lines -->
+  <line x1="108" y1="100" x2="144" y2="100" stroke="#666" stroke-width="1.5"/>
+  <line x1="110" y1="108" x2="142" y2="108" stroke="#666" stroke-width="1.5"/>
+  <!-- Bolt marks on robot face -->
+  <circle cx="110" cy="60" r="3" fill="#555" stroke="#444" stroke-width="1"/>
+  <circle cx="142" cy="60" r="3" fill="#555" stroke="#444" stroke-width="1"/>
+  <!-- Robot mouth — grid pattern -->
+  <rect x="116" y="118" width="20" height="8" rx="2" fill="#555"/>
+  <line x1="122" y1="118" x2="122" y2="126" stroke="#444" stroke-width="1.5"/>
+  <line x1="128" y1="118" x2="128" y2="126" stroke="#444" stroke-width="1.5"/>
+
+  <!-- ===== TEXT ===== -->
+  <!-- "BEAVERCREEK" in orange -->
+  <text x="100" y="167" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="19" fill="#e8661a" letter-spacing="2">BEAVERCREEK</text>
+  <!-- "ROBOTICS CLUB" in white -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="3">ROBOTICS CLUB</text>
+</svg>

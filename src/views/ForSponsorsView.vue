@@ -213,11 +213,11 @@ const whySponsors = [
 ]
 
 const budgetItems = [
-  { label: 'Robot Parts & Materials', pct: '40%', color: '#1a365d' },
-  { label: 'Competition Registration Fees', pct: '25%', color: '#c53030' },
-  { label: 'Travel & Lodging', pct: '20%', color: '#d69e2e' },
+  { label: 'Robot Parts & Materials', pct: '40%', color: '#e8661a' },
+  { label: 'Competition Registration Fees', pct: '25%', color: '#c45412' },
+  { label: 'Travel & Lodging', pct: '20%', color: '#808080' },
   { label: 'Training & Safety Equipment', pct: '10%', color: '#48bb78' },
-  { label: 'Administrative & Insurance', pct: '5%', color: '#718096' },
+  { label: 'Administrative & Insurance', pct: '5%', color: '#a8a8a8' },
 ]
 </script>
 
