@@ -248,7 +248,7 @@ const audienceCards = [
 
 /* Stats */
 .stats-section {
-  background: linear-gradient(135deg, var(--color-navy) 0%, #2e2e2e 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
 }
 
 .stats-grid {

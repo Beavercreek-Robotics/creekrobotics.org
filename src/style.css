@@ -9,8 +9,8 @@
   --color-navy-light: #2e2e2e;  /* slightly lighter dark */
   --color-red: #e8661a;         /* logo: tiger orange — primary accent */
   --color-red-light: #f59a5c;   /* lighter orange */
-  --color-gold: #e8661a;        /* logo orange (unified accent) */
-  --color-gold-light: #f5a96b;  /* light orange */
+  --color-gold: var(--color-red);        /* alias → same orange accent */
+  --color-gold-light: var(--color-red-light);
   --color-white: #ffffff;
   --color-light: #f5f5f5;
   --color-light-2: #ebebeb;

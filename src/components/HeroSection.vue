@@ -73,27 +73,27 @@ defineProps({
 }
 
 .hero-default {
-  background: linear-gradient(135deg, var(--color-navy) 0%, #2e2e2e 50%, var(--color-red) 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 50%, var(--color-red) 100%);
 }
 
 .hero-parents {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2e2e2e 60%, #2d6a4f 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 60%, #2d6a4f 100%);
 }
 
 .hero-students {
-  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #e8661a 100%);
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 50%, var(--color-red) 100%);
 }
 
 .hero-engineers {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2e2e2e 60%, #e8661a 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 60%, var(--color-red) 100%);
 }
 
 .hero-sponsors {
-  background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 60%, #e8661a 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-gray-dark) 60%, var(--color-red) 100%);
 }
 
 .hero-contact {
-  background: linear-gradient(135deg, #1a1a1a 0%, #2e2e2e 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
 }
 
 /* Decorative pattern overlay */
