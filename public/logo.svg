@@ -1,69 +1,248 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <!-- Dark circular background -->
-  <circle cx="100" cy="100" r="98" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <!-- Clip everything to the outer circle -->
+    <clipPath id="outerCircle">
+      <circle cx="250" cy="250" r="238"/>
+    </clipPath>
+    <!-- Clip tiger elements to left half -->
+    <clipPath id="leftHalf">
+      <rect x="0" y="0" width="250" height="500"/>
+    </clipPath>
+    <!-- Clip robot elements to right half -->
+    <clipPath id="rightHalf">
+      <rect x="250" y="0" width="250" height="500"/>
+    </clipPath>
+  </defs>
 
-  <!-- Vertical divider line (subtle) -->
-  <line x1="100" y1="14" x2="100" y2="162" stroke="#3a3a3a" stroke-width="1.5"/>
+  <!-- ══════════════════════════════════════════
+       BLACK CIRCLE BACKGROUND
+       ══════════════════════════════════════════ -->
+  <circle cx="250" cy="250" r="242" fill="#0d0d0d"/>
 
-  <!-- ===== LEFT HALF — TIGER (orange) ===== -->
-  <!-- Tiger head base -->
-  <path d="M100,20 C76,20 56,34 46,54 C38,68 36,84 40,100 C44,116 54,130 68,138 C78,144 88,147 100,147 Z" fill="#e8661a"/>
-  <!-- Tiger ear left -->
-  <path d="M46,54 C40,44 36,36 42,28 C48,24 56,28 60,34 Z" fill="#e8661a"/>
-  <!-- Tiger ear inner left -->
-  <path d="M47,50 C44,43 42,38 46,34 C50,31 54,34 57,39 Z" fill="#c44d0e"/>
-  <!-- Tiger face markings / stripes -->
-  <path d="M68,60 C64,64 62,70 64,76" stroke="#c44d0e" stroke-width="3" fill="none" stroke-linecap="round"/>
-  <path d="M60,80 C56,82 54,87 56,92" stroke="#c44d0e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-  <!-- Tiger eye — lightning bolt shape -->
-  <path d="M74,68 L70,78 L77,76 L72,90 L80,78 L73,80 Z" fill="#ffcc44"/>
-  <!-- Tiger eye outline -->
-  <ellipse cx="74" cy="79" rx="10" ry="12" fill="none" stroke="#c44d0e" stroke-width="1.5"/>
-  <!-- Tiger nose -->
-  <path d="M82,105 L78,110 L82,108 L86,110 Z" fill="#c44d0e"/>
-  <!-- Tiger mouth -->
-  <path d="M78,112 C80,118 84,120 88,118" stroke="#c44d0e" stroke-width="2" fill="none" stroke-linecap="round"/>
-  <!-- Tiger cheek fur lines -->
-  <path d="M60,100 L75,105" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M58,107 L74,110" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-  <path d="M60,114 L74,115" stroke="#c44d0e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <g clip-path="url(#outerCircle)">
 
-  <!-- ===== RIGHT HALF — ROBOT (gray) ===== -->
-  <!-- Robot head base -->
-  <path d="M100,20 C124,20 144,34 154,54 C162,68 164,84 160,100 C156,116 146,130 132,138 C122,144 112,147 100,147 Z" fill="#808080"/>
-  <!-- Robot ear right -->
-  <path d="M154,54 C160,44 164,36 158,28 C152,24 144,28 140,34 Z" fill="#707070"/>
-  <!-- Robot antenna -->
-  <line x1="150" y1="30" x2="150" y2="18" stroke="#a0a0a0" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="150" cy="15" r="4" fill="#e8661a"/>
-  <!-- Robot eye — gear/mechanical -->
-  <circle cx="126" cy="79" r="12" fill="#1a1a1a" stroke="#555" stroke-width="2"/>
-  <circle cx="126" cy="79" r="7" fill="#404040"/>
-  <!-- Gear teeth on robot eye -->
-  <circle cx="126" cy="65" r="3" fill="#666"/>
-  <circle cx="126" cy="93" r="3" fill="#666"/>
-  <circle cx="112" cy="79" r="3" fill="#666"/>
-  <circle cx="140" cy="79" r="3" fill="#666"/>
-  <circle cx="116" cy="69" r="2.5" fill="#666"/>
-  <circle cx="136" cy="69" r="2.5" fill="#666"/>
-  <circle cx="116" cy="89" r="2.5" fill="#666"/>
-  <circle cx="136" cy="89" r="2.5" fill="#666"/>
-  <!-- Gear center highlight -->
-  <circle cx="126" cy="79" r="3" fill="#e8661a"/>
-  <!-- Robot panel lines -->
-  <line x1="108" y1="100" x2="144" y2="100" stroke="#666" stroke-width="1.5"/>
-  <line x1="110" y1="108" x2="142" y2="108" stroke="#666" stroke-width="1.5"/>
-  <!-- Bolt marks on robot face -->
-  <circle cx="110" cy="60" r="3" fill="#555" stroke="#444" stroke-width="1"/>
-  <circle cx="142" cy="60" r="3" fill="#555" stroke="#444" stroke-width="1"/>
-  <!-- Robot mouth — grid pattern -->
-  <rect x="116" y="118" width="20" height="8" rx="2" fill="#555"/>
-  <line x1="122" y1="118" x2="122" y2="126" stroke="#444" stroke-width="1.5"/>
-  <line x1="128" y1="118" x2="128" y2="126" stroke="#444" stroke-width="1.5"/>
+    <!-- ══════════════════════════════════════════
+         TIGER HALF — LEFT (orange)
+         ══════════════════════════════════════════ -->
 
-  <!-- ===== TEXT ===== -->
-  <!-- "BEAVERCREEK" in orange -->
-  <text x="100" y="167" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="19" fill="#e8661a" letter-spacing="2">BEAVERCREEK</text>
-  <!-- "ROBOTICS CLUB" in white -->
-  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="12" fill="#ffffff" letter-spacing="3">ROBOTICS CLUB</text>
+    <!-- Tiger head base fill (left half oval) -->
+    <path clip-path="url(#leftHalf)"
+      d="M250,42
+         C228,42 200,48 178,60
+         C154,74 134,96 122,124
+         C110,152 108,182 114,210
+         C120,238 134,262 155,280
+         C172,294 196,304 225,308
+         C238,310 248,311 250,311
+         Z"
+      fill="#E8661A"/>
+
+    <!-- Tiger ear — outer orange -->
+    <path d="M250,42 C238,42 218,44 202,50
+             C194,44 185,32 170,20
+             C156,8  136,8  130,22
+             C124,36 132,52 148,66
+             C158,74 168,78 178,60
+             C200,48 228,42 250,42 Z"
+      fill="#E8661A"/>
+    <!-- Tiger ear — inner (darker) -->
+    <path d="M170,20 C160,12 142,12 136,24
+             C130,36 137,50 150,62
+             C142,50 137,38 142,28
+             C148,18 162,18 170,20 Z"
+      fill="#BF4C0A"/>
+
+    <!-- Tiger forehead stripes (dark orange lines going downward) -->
+    <line x1="192" y1="50" x2="184" y2="106" stroke="#BF4C0A" stroke-width="9"  stroke-linecap="round"/>
+    <line x1="211" y1="47" x2="207" y2="103" stroke="#BF4C0A" stroke-width="8"  stroke-linecap="round"/>
+    <line x1="229" y1="46" x2="228" y2="102" stroke="#BF4C0A" stroke-width="7"  stroke-linecap="round"/>
+    <line x1="244" y1="47" x2="246" y2="101" stroke="#BF4C0A" stroke-width="6"  stroke-linecap="round"/>
+
+    <!-- Tiger eyebrow ridge (dark, strongly angled — angry look) -->
+    <path d="M126,136 C144,116 166,108 196,112 C222,115 242,123 250,128"
+      stroke="#0d0d0d" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <path d="M128,138 C146,120 167,113 196,116 C222,119 241,126 250,131"
+      stroke="#BF4C0A" stroke-width="7" stroke-linecap="round" fill="none"/>
+
+    <!-- Tiger eye socket (dark surround creates fierce look) -->
+    <ellipse cx="178" cy="163" rx="54" ry="48" fill="#BF4C0A"/>
+    <ellipse cx="178" cy="163" rx="42" ry="36" fill="#0d0d0d"/>
+
+    <!-- Tiger iris (amber/yellow) -->
+    <ellipse cx="178" cy="163" rx="30" ry="28" fill="#E8A820"/>
+    <!-- Tiger pupil — vertical slit -->
+    <ellipse cx="178" cy="163" rx="9"  ry="24" fill="#0d0d0d"/>
+    <!-- Eye catch-light -->
+    <circle cx="168" cy="153" r="6"   fill="#ffffff" opacity="0.65"/>
+    <circle cx="175" cy="148" r="3"   fill="#ffffff" opacity="0.35"/>
+
+    <!-- Lightning bolt mark — left of eye (iconic marking) -->
+    <path d="M140,148 L130,164 L142,158 L132,176"
+      stroke="#BF4C0A" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <!-- Secondary lightning accent above eye -->
+    <path d="M156,130 L149,144 L159,138 L152,154"
+      stroke="#BF4C0A" stroke-width="5" stroke-linecap="round" fill="none"/>
+
+    <!-- Tiger cheek fur stripes (3 horizontal lines) -->
+    <path d="M110,198 C130,191 156,193 176,201" stroke="#BF4C0A" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+    <path d="M108,218 C129,211 156,213 177,221" stroke="#BF4C0A" stroke-width="6"   stroke-linecap="round" fill="none"/>
+    <path d="M110,238 C131,232 157,234 178,241" stroke="#BF4C0A" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Tiger lower face / snout / muzzle area -->
+    <path clip-path="url(#leftHalf)"
+      d="M145,258 C158,274 180,286 210,292
+         C228,296 244,297 250,297
+         L250,280 C244,280 228,278 212,274
+         C190,268 172,257 160,244 Z"
+      fill="#BF4C0A"/>
+    <!-- Muzzle highlight (lighter patch) -->
+    <ellipse clip-path="url(#leftHalf)"
+      cx="210" cy="272" rx="38" ry="22"
+      fill="#E8661A" opacity="0.4"/>
+
+    <!-- Tiger nose tip -->
+    <path d="M224,258 C233,262 242,265 250,266 L250,258 C243,257 235,254 227,250 Z"
+      fill="#7A2A08"/>
+
+    <!-- ══════════════════════════════════════════
+         ROBOT HALF — RIGHT (gray)
+         ══════════════════════════════════════════ -->
+
+    <!-- Robot head base fill (right half oval, mirrors tiger) -->
+    <path clip-path="url(#rightHalf)"
+      d="M250,42
+         C272,42 300,48 322,60
+         C346,74 366,96 378,124
+         C390,152 392,182 386,210
+         C380,238 366,262 345,280
+         C328,294 304,304 275,308
+         C262,310 252,311 250,311
+         Z"
+      fill="#888888"/>
+
+    <!-- Robot ear / side panel (mirrors tiger ear shape) -->
+    <path d="M250,42 C262,42 282,44 298,50
+             C306,44 315,32 330,20
+             C344,8  364,8  370,22
+             C376,36 368,52 352,66
+             C342,74 332,78 322,60
+             C300,48 272,42 250,42 Z"
+      fill="#777777"/>
+    <!-- Robot ear panel detail (rectangular inset) -->
+    <rect x="344" y="22" width="26" height="14" rx="4" fill="#555"
+          transform="rotate(-8 357 29)"/>
+    <line x1="348" y1="22" x2="345" y2="36" stroke="#444" stroke-width="2.5"/>
+    <line x1="357" y1="21" x2="356" y2="35" stroke="#444" stroke-width="2.5"/>
+    <line x1="366" y1="22" x2="367" y2="35" stroke="#444" stroke-width="2.5"/>
+
+    <!-- Robot forehead panel-line engravings -->
+    <line x1="264" y1="50" x2="262" y2="102" stroke="#666" stroke-width="3"/>
+    <line x1="282" y1="47" x2="281" y2="99"  stroke="#666" stroke-width="3"/>
+    <line x1="302" y1="46" x2="304" y2="98"  stroke="#666" stroke-width="3"/>
+    <line x1="320" y1="48" x2="325" y2="100" stroke="#666" stroke-width="2.5"/>
+
+    <!-- Robot eyebrow panel strip (matches tiger brow height) -->
+    <path d="M250,128 C258,124 278,117 308,115 C336,113 357,119 372,127"
+      stroke="#555" stroke-width="9" stroke-linecap="round" fill="none"/>
+
+    <!-- ── ROBOT GEAR EYE ── center (322, 162) ──
+         Layer order: black socket → gear polygon (gray) → gray ring →
+                      dark inner ring → spokes → orange hub → black hole  -->
+
+    <!-- Black eye socket -->
+    <circle cx="322" cy="162" r="66" fill="#0d0d0d"/>
+
+    <!-- Gear polygon (10 teeth, computed path) -->
+    <path d="M308.4,120.2 L316.6,118.3 L314.6,101.5 L329.4,101.5 L327.4,118.3
+             L335.6,120.2 L343.3,123.5 L351.6,108.6 L363.6,117.4 L352.0,129.8
+             L357.6,136.1 L361.9,143.4 L377.3,136.2 L381.9,150.4 L365.2,153.6
+             L366.0,162.0 L365.2,170.4 L381.9,173.6 L377.3,187.8 L361.9,180.6
+             L357.6,187.9 L352.0,194.2 L363.6,206.6 L351.6,215.4 L343.3,200.5
+             L335.6,203.8 L327.4,205.7 L329.4,222.5 L314.6,222.5 L316.6,205.7
+             L308.4,203.8 L300.7,200.5 L292.4,215.4 L280.4,206.6 L292.0,194.2
+             L286.4,187.9 L282.1,180.6 L266.7,187.8 L262.1,173.6 L278.8,170.4
+             L278.0,162.0 L278.8,153.6 L262.1,150.4 L266.7,136.2 L282.1,143.4
+             L286.4,136.1 L292.0,129.8 L280.4,117.4 L292.4,108.6 L300.7,123.5 Z"
+      fill="#888888"/>
+
+    <!-- Gray gear ring body (covers tooth bases, sits on top of gear polygon) -->
+    <circle cx="322" cy="162" r="48" fill="#888888"/>
+    <!-- Dark inner ring -->
+    <circle cx="322" cy="162" r="36" fill="#333333"/>
+
+    <!-- Gear spokes (4-way cross) -->
+    <g stroke="#555555" stroke-width="5.5" stroke-linecap="round">
+      <line x1="322" y1="126" x2="322" y2="198"/>
+      <line x1="286" y1="162" x2="358" y2="162"/>
+      <line x1="297" y1="137" x2="347" y2="187"/>
+      <line x1="297" y1="187" x2="347" y2="137"/>
+    </g>
+
+    <!-- Orange hub (matches tiger accent) -->
+    <circle cx="322" cy="162" r="18" fill="#E8661A"/>
+    <!-- Black center hole -->
+    <circle cx="322" cy="162" r="10" fill="#0d0d0d"/>
+
+    <!-- Robot cheek panel marks (horizontal lines, right side) -->
+    <line x1="392" y1="198" x2="364" y2="203" stroke="#666" stroke-width="5"   stroke-linecap="round"/>
+    <line x1="393" y1="217" x2="365" y2="221" stroke="#666" stroke-width="4.5" stroke-linecap="round"/>
+    <line x1="391" y1="236" x2="364" y2="239" stroke="#666" stroke-width="4"   stroke-linecap="round"/>
+
+    <!-- Robot lower face / snout panel -->
+    <path clip-path="url(#rightHalf)"
+      d="M355,258 C342,274 320,286 290,292
+         C272,296 256,297 250,297
+         L250,280 C256,280 272,278 288,274
+         C310,268 328,257 340,244 Z"
+      fill="#666666"/>
+    <!-- Snout highlight (lighter patch, matches tiger) -->
+    <ellipse clip-path="url(#rightHalf)"
+      cx="290" cy="272" rx="38" ry="22"
+      fill="#888888" opacity="0.4"/>
+
+    <!-- Robot nose tip -->
+    <path d="M276,258 C267,262 258,265 250,266 L250,258 C257,257 265,254 273,250 Z"
+      fill="#444444"/>
+
+    <!-- Robot mouth / ventilation grille -->
+    <rect x="264" y="251" width="86" height="28" rx="6" fill="#444444"/>
+    <line x1="281" y1="251" x2="281" y2="279" stroke="#333" stroke-width="2.5"/>
+    <line x1="298" y1="251" x2="298" y2="279" stroke="#333" stroke-width="2.5"/>
+    <line x1="315" y1="251" x2="315" y2="279" stroke="#333" stroke-width="2.5"/>
+    <line x1="332" y1="251" x2="332" y2="279" stroke="#333" stroke-width="2.5"/>
+    <line x1="349" y1="251" x2="349" y2="279" stroke="#333" stroke-width="2.5"/>
+    <line x1="264" y1="265" x2="350" y2="265" stroke="#333" stroke-width="1.5"/>
+
+    <!-- Rivet / bolt marks (robot structural details) -->
+    <circle cx="258" cy="122" r="5" fill="#555" stroke="#444" stroke-width="2"/>
+    <circle cx="386" cy="122" r="5" fill="#555" stroke="#444" stroke-width="2"/>
+    <circle cx="388" cy="244" r="5" fill="#555" stroke="#444" stroke-width="2"/>
+
+    <!-- ══════════════════════════════════════════
+         CENTER DIVIDING SEAM
+         ══════════════════════════════════════════ -->
+    <line x1="250" y1="30" x2="250" y2="312" stroke="#0d0d0d" stroke-width="5"/>
+
+    <!-- ══════════════════════════════════════════
+         TEXT
+         ══════════════════════════════════════════ -->
+    <!-- BEAVERCREEK — orange, bold -->
+    <text x="250" y="362"
+      text-anchor="middle"
+      font-family="'Arial Black','Impact','Helvetica Neue',Arial,sans-serif"
+      font-weight="900"
+      font-size="46"
+      fill="#E8661A"
+      letter-spacing="1.5">BEAVERCREEK</text>
+
+    <!-- ROBOTICS CLUB — white, tracked -->
+    <text x="250" y="391"
+      text-anchor="middle"
+      font-family="Arial,'Helvetica Neue',Helvetica,sans-serif"
+      font-weight="700"
+      font-size="17"
+      fill="#ffffff"
+      letter-spacing="5">ROBOTICS CLUB</text>
+
+  </g>
 </svg>
