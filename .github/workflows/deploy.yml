@@ -1,0 +1,60 @@
+# Source: https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/.github/workflows/deploy.yml
+#
+# Deploy to GitHub Pages — Main Branch
+# ─────────────────────────────────────
+# Triggered on every push to `main` (and can be run manually).
+# Builds the Vue3/Vite site and publishes it to the `gh-pages`
+# branch at the root, which GitHub serves at creekrobotics.org
+# (via the CNAME file in public/).
+#
+# Required GitHub Pages settings:
+#   Settings → Pages → Source: Deploy from a branch → gh-pages / (root)
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# Allow only one concurrent deployment; cancel in-progress ones.
+concurrency:
+  group: pages-production
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site (production base path /)
+        run: npm run build
+        env:
+          VITE_BASE_PATH: /
+
+      - name: Deploy to gh-pages branch (with CNAME)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          # CNAME is already in public/ so it is included in dist/ automatically.
+          # Setting cname here also forces peaceiris to write it (belt-and-suspenders).
+          cname: creekrobotics.org
+          commit_message: "deploy: ${{ github.event.head_commit.message }}"
+          force_orphan: false

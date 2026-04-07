@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a365d;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#c53030;stop-opacity:0.05"/>
+    </linearGradient>
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d5a9e"/>
+      <stop offset="100%" style="stop-color:#1a365d"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bgGrad)" rx="20"/>
+  <!-- Team label -->
+  <text x="200" y="40" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a365d" opacity="0.6">FRC TEAM 5 · BEAVERCREEK ROBOTICS</text>
+  <!-- Robot body -->
+  <rect x="120" y="200" width="160" height="140" rx="15" fill="url(#bodyGrad)"/>
+  <!-- Chest panel -->
+  <rect x="140" y="220" width="120" height="80" rx="8" fill="#d69e2e" opacity="0.2"/>
+  <rect x="150" y="230" width="40" height="25" rx="4" fill="#d69e2e"/>
+  <rect x="200" y="230" width="50" height="10" rx="3" fill="#c53030" opacity="0.8"/>
+  <rect x="200" y="245" width="35" height="10" rx="3" fill="#4299e1" opacity="0.8"/>
+  <!-- Wheel indicators -->
+  <circle cx="155" cy="285" r="10" fill="#c53030"/>
+  <circle cx="245" cy="285" r="10" fill="#c53030"/>
+  <circle cx="155" cy="285" r="5" fill="#1a365d"/>
+  <circle cx="245" cy="285" r="5" fill="#1a365d"/>
+  <!-- Robot head -->
+  <rect x="130" y="110" width="140" height="90" rx="20" fill="url(#bodyGrad)"/>
+  <!-- Visor -->
+  <rect x="145" y="125" width="110" height="45" rx="10" fill="#4299e1" opacity="0.3"/>
+  <rect x="148" y="128" width="104" height="39" rx="8" fill="#1a365d" opacity="0.8"/>
+  <!-- Eyes -->
+  <circle cx="178" cy="148" r="14" fill="#d69e2e"/>
+  <circle cx="222" cy="148" r="14" fill="#d69e2e"/>
+  <circle cx="178" cy="148" r="8" fill="#1a365d"/>
+  <circle cx="222" cy="148" r="8" fill="#1a365d"/>
+  <circle cx="175" cy="145" r="3" fill="#ffffff" opacity="0.9"/>
+  <circle cx="219" cy="145" r="3" fill="#ffffff" opacity="0.9"/>
+  <!-- Antenna -->
+  <rect x="196" y="75" width="8" height="35" rx="4" fill="#1a365d"/>
+  <circle cx="200" cy="70" r="10" fill="#d69e2e"/>
+  <circle cx="200" cy="70" r="5" fill="#c53030"/>
+  <!-- Ears -->
+  <rect x="105" y="130" width="25" height="50" rx="8" fill="#c53030"/>
+  <rect x="270" y="130" width="25" height="50" rx="8" fill="#c53030"/>
+  <rect x="110" y="140" width="15" height="30" rx="4" fill="#1a365d" opacity="0.5"/>
+  <rect x="275" y="140" width="15" height="30" rx="4" fill="#1a365d" opacity="0.5"/>
+  <!-- Neck -->
+  <rect x="175" y="200" width="50" height="20" rx="6" fill="#2d5a9e"/>
+  <!-- Arms -->
+  <rect x="60" y="210" width="60" height="100" rx="15" fill="url(#bodyGrad)"/>
+  <rect x="280" y="210" width="60" height="100" rx="15" fill="url(#bodyGrad)"/>
+  <!-- Hands -->
+  <rect x="55" y="305" width="70" height="35" rx="12" fill="#c53030"/>
+  <rect x="275" y="305" width="70" height="35" rx="12" fill="#c53030"/>
+  <!-- Legs -->
+  <rect x="140" y="340" width="50" height="80" rx="12" fill="url(#bodyGrad)"/>
+  <rect x="210" y="340" width="50" height="80" rx="12" fill="url(#bodyGrad)"/>
+  <!-- Feet -->
+  <rect x="128" y="410" width="74" height="25" rx="10" fill="#c53030"/>
+  <rect x="198" y="410" width="74" height="25" rx="10" fill="#c53030"/>
+  <!-- Gold accent lines on body -->
+  <rect x="120" y="305" width="160" height="4" rx="2" fill="#d69e2e" opacity="0.6"/>
+  <!-- Team number badge -->
+  <circle cx="315" cy="375" r="30" fill="#d69e2e"/>
+  <text x="315" y="383" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="bold" fill="#1a365d">5</text>
+  <!-- Ground shadow -->
+  <ellipse cx="200" cy="450" rx="100" ry="12" fill="#1a365d" opacity="0.1"/>
+</svg>
