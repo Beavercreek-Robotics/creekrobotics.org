@@ -20,8 +20,8 @@
           <rect x="19" y="38" width="10" height="5" rx="2" fill="#d69e2e"/>
         </svg>
         <div class="brand-text">
-          <span class="brand-name">Beavercreek Robotics</span>
-          <span class="brand-subtitle">FRC Team 5</span>
+          <span class="brand-name">{{ CLUB_NAME }}</span>
+          <span class="brand-subtitle">{{ CLUB_TAGLINE }}</span>
         </div>
       </RouterLink>
 
@@ -47,6 +47,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
+import { CLUB_NAME, CLUB_TAGLINE } from '../config/club.js'
 
 const menuOpen = ref(false)
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }

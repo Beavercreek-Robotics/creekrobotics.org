@@ -124,6 +124,13 @@
 <script setup>
 import { ref } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
+import {
+  CLUB_NAME,
+  COMPETITION_PROGRAM,
+  COMPETITION_PROGRAM_SHORT,
+  CONTACT_EMAIL,
+  MEETING_SCHEDULE,
+} from '../config/club.js'
 
 const openFaq = ref(null)
 const toggleFaq = (i) => { openFaq.value = openFaq.value === i ? null : i }
@@ -131,7 +138,7 @@ const toggleFaq = (i) => { openFaq.value = openFaq.value === i ? null : i }
 const enrollmentSteps = [
   {
     title: 'Attend an Info Night',
-    description: 'Join us at one of our informational meetings held each fall. You\'ll meet current members, mentors, and get all your questions answered in a relaxed setting. No commitment required!'
+    description: `Join us at one of our informational meetings held each fall. You'll meet current members, mentors, and get all your questions answered in a relaxed setting. No commitment required!`
   },
   {
     title: 'Complete Registration',
@@ -139,42 +146,28 @@ const enrollmentSteps = [
   },
   {
     title: 'Safety Training',
-    description: 'All students complete our mandatory safety training covering tool use, lab safety procedures, and emergency protocols. This typically takes one meeting session and is required before any hands-on work.'
+    description: 'All students complete mandatory safety training covering tool use, lab safety procedures, and emergency protocols. This is required before any hands-on work.'
   },
   {
     title: 'Meet the Team',
     description: 'Your student will meet their fellow team members and be connected with experienced mentors who share their interests — whether that\'s mechanical engineering, programming, business, or media.'
   },
   {
-    title: 'Build Season Begins!',
-    description: 'The official FRC build season runs January through April. This is when the real fun starts — designing, building, programming, and testing a robot to compete at regional competitions.'
+    title: 'Competition Season Begins!',
+    description: `The ${COMPETITION_PROGRAM_SHORT} competition season runs August through April. This is when the real fun starts — designing, building, programming, and testing a robot to compete at local and regional events.`
   },
 ]
 
-const scheduleItems = [
-  {
-    icon: '🔨',
-    title: 'Build Season',
-    time: '15–20 hrs/week',
-    description: 'January through April. Meetings are Tuesday and Thursday evenings plus Saturday sessions as competition approaches.'
-  },
-  {
-    icon: '📚',
-    title: 'Off-Season',
-    time: '5–10 hrs/week',
-    description: 'May through December. Training workshops, outreach events, off-season competitions, and team-building activities.'
-  },
-  {
-    icon: '🏆',
-    title: 'Competitions',
-    time: '2–3 weekends/year',
-    description: 'Typically 2 regional events within Ohio plus potential travel to the FIRST Championship in Houston, TX.'
-  },
-]
+const scheduleItems = MEETING_SCHEDULE.map((m, i) => ({
+  icon: ['🔨', '📚', '🏆'][i] || '📅',
+  title: m.period.split(' (')[0],
+  time: m.days,
+  description: m.time,
+}))
 
 const safetyItems = [
   'Adult mentors present at all meetings',
-  'FIRST Youth Protection Program compliance',
+  'Youth Protection Program compliance',
   'Safe equipment handling and PPE training',
   'Background-checked adult supervisors',
   'First aid certified team members on-site',
@@ -185,7 +178,7 @@ const studentGains = [
   {
     icon: '🔬',
     title: 'STEM Skills',
-    description: 'Real experience with CAD design, programming, electrical systems, and manufacturing — skills that directly translate to college coursework.'
+    description: `Real experience with robot design, programming, electronics, and manufacturing — skills that directly translate to college coursework and careers.`
   },
   {
     icon: '🤝',
@@ -195,7 +188,7 @@ const studentGains = [
   {
     icon: '🎓',
     title: 'College Advantage',
-    description: 'FRC participation stands out on college applications. Many of our alumni receive acceptance to top engineering programs.'
+    description: `${COMPETITION_PROGRAM_SHORT} participation stands out on college applications. Our alumni are accepted to top engineering programs nationwide.`
   },
   {
     icon: '💼',
@@ -209,15 +202,15 @@ const studentGains = [
   },
   {
     icon: '💰',
-    title: 'FIRST Scholarships',
-    description: 'FIRST offers over $80 million in scholarship opportunities to alumni. Participation can directly fund your student\'s college education.'
+    title: 'Scholarship Opportunities',
+    description: 'Robotics participation builds a strong portfolio that can support scholarship applications for college — both STEM-focused and general merit awards.'
   },
 ]
 
 const faqs = [
   {
     question: 'What grade levels can participate?',
-    answer: 'Students in 9th through 12th grade (ages 14–18) are eligible to participate on FRC Team 5. We welcome students from Beavercreek High School and surrounding schools.'
+    answer: `Students in 9th through 12th grade are eligible to participate with ${CLUB_NAME}. We welcome students from Beavercreek High School.`
   },
   {
     question: 'Does my student need prior experience?',
@@ -225,7 +218,7 @@ const faqs = [
   },
   {
     question: 'How competitive is it to get on the team?',
-    answer: 'We welcome everyone! Unlike sports teams with tryouts, we don\'t cut students. Our team has roles for all interests and skill levels — engineering, programming, business, marketing, media, safety, and more.'
+    answer: 'We welcome everyone! Our team has roles for all interests and skill levels — engineering, programming, business, marketing, media, safety, and more. No one is turned away.'
   },
   {
     question: 'What if my student wants to stop participating?',
@@ -233,11 +226,11 @@ const faqs = [
   },
   {
     question: 'How far away are competitions?',
-    answer: 'Regional competitions are usually within Ohio (Columbus, Cleveland, Cincinnati area). If we qualify for the FIRST Championship, that\'s held in Houston, TX — travel and lodging assistance is available for students who need it.'
+    answer: 'Competitions are typically within Ohio and surrounding states. Major signature events may require overnight travel; we coordinate carpool and lodging assistance for families who need it.'
   },
   {
     question: 'Can I volunteer or help as a parent?',
-    answer: 'We love parent involvement! Parents can volunteer at competitions, help with transportation, provide meals during build season, or even serve as mentors if they have relevant skills. Contact us to learn about volunteer opportunities.'
+    answer: `We love parent involvement! Parents can volunteer at competitions, help with transportation, provide meals, or even serve as mentors if they have relevant skills. Contact us at ${CONTACT_EMAIL} to learn about volunteer opportunities.`
   },
 ]
 </script>

@@ -3,7 +3,7 @@
   <div class="students-page">
     <HeroSection
       title="Build Robots. Change the World."
-      subtitle="Join FRC Team 5 and discover your passion for engineering, coding, design, or business — no experience needed, just curiosity and drive."
+      :subtitle="`Join ${COMPETITION_PROGRAM_SHORT} and discover your passion for engineering, coding, design, or business — no experience needed, just curiosity and drive.`"
       backgroundClass="hero-students"
       ctaText="Apply to Join"
       ctaLink="/contact"
@@ -12,32 +12,33 @@
       :showCta="true"
     />
 
-    <!-- What is FRC -->
+    <!-- What is VRC -->
     <section class="section bg-white">
       <div class="container">
         <div class="frc-intro">
           <div class="frc-text">
-            <p class="label-tag">About FRC</p>
-            <h2>What Is FIRST Robotics Competition?</h2>
+            <p class="label-tag">About {{ COMPETITION_PROGRAM_SHORT }}</p>
+            <h2>What Is the {{ COMPETITION_PROGRAM }}?</h2>
             <div class="divider divider-left"></div>
             <p>
-              FIRST Robotics Competition (FRC) is the ultimate sport for the mind. Each January, 
-              over 3,700 teams around the world receive an identical game kit and six weeks to 
-              design, build, and program a robot — from scratch.
+              The {{ COMPETITION_PROGRAM }} (VRC) is one of the largest student robotics competitions
+              in the world, with more than 20,000 teams across 50+ countries. Each August, a new
+              game challenge is announced and teams have the entire season to design, build, and
+              program their robot to compete.
             </p>
             <p style="margin-top: 1rem;">
-              Teams compete in regional events where alliances of three robots work together to 
-              score points, navigate obstacles, and outmaneuver opponents. The best teams earn 
-              spots at the FIRST Championship — the Super Bowl of robotics.
+              Teams compete in local qualifiers, signature events, and state championships, with the
+              top teams earning spots at the VEX World Championship. The {{ CURRENT_SEASON_YEAR }}
+              game is <strong>{{ CURRENT_GAME_NAME }}</strong>.
             </p>
             <p style="margin-top: 1rem;">
-              But FRC is about more than winning. It's about learning to work under pressure, 
-              collaborate with a diverse team, and apply real engineering principles to solve 
-              real problems — all while having an incredible time.
+              VRC is entirely student-driven — students build, program, and drive their robots
+              themselves. Mentors guide and advise, but the hands are always the students'. This
+              makes VRC one of the most powerful STEM educational experiences available.
             </p>
           </div>
           <div class="frc-stats">
-            <div class="frc-stat" v-for="stat in frcStats" :key="stat.label">
+            <div class="frc-stat" v-for="stat in vrcStats" :key="stat.label">
               <div class="frc-stat-value">{{ stat.value }}</div>
               <div class="frc-stat-label">{{ stat.label }}</div>
             </div>
@@ -145,12 +146,19 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeroSection from '../components/HeroSection.vue'
+import {
+  COMPETITION_PROGRAM,
+  COMPETITION_PROGRAM_SHORT,
+  CURRENT_SEASON_YEAR,
+  CURRENT_GAME_NAME,
+  TEAM_STATS,
+} from '../config/club.js'
 
-const frcStats = [
-  { value: '6', label: 'Week Build Season' },
-  { value: '3,700+', label: 'Teams Worldwide' },
-  { value: '$80M+', label: 'FIRST Scholarships' },
-  { value: '95%', label: 'Alumni in STEM Careers' },
+const vrcStats = [
+  { value: '20,000+', label: 'Teams Worldwide' },
+  { value: '50+', label: 'Countries Competing' },
+  { value: 'Aug–Apr', label: 'Season Duration' },
+  { value: '100%', label: 'Student-Driven' },
 ]
 
 const tracks = [
@@ -188,9 +196,9 @@ const testimonials = [
     initials: 'AM',
   },
   {
-    text: 'I got my internship at an aerospace company specifically because of the experience and projects I had from FRC. My interviewer said my robotics background showed I could work in a real engineering environment. That\'s something no classroom could\'ve given me.',
+    text: 'I got my internship at an engineering company specifically because of the experience and projects I had from VRC. My interviewer said my robotics background showed I could work in a real engineering environment. That\'s something no classroom could\'ve given me.',
     author: 'Sarah K.',
-    role: 'Class of 2022 · Aerospace Engineering Intern at GE Aviation',
+    role: 'Class of 2022 · Engineering Intern',
     initials: 'SK',
   },
   {

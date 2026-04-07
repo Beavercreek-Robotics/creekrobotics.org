@@ -10,19 +10,20 @@ This document explains how to update the website content for each page. You do n
 
 1. [Project Structure](#project-structure)
 2. [How to Run & Build](#how-to-run--build)
-3. [Updating Each Page](#updating-each-page)
+3. [Club Configuration File](#club-configuration-file) ← **Start here for most updates**
+4. [Updating Each Page](#updating-each-page)
    - [Home Page](#home-page)
    - [For Parents](#for-parents)
    - [For Students](#for-students)
    - [For Engineers / Mentors](#for-engineers--mentors)
    - [For Sponsors](#for-sponsors)
    - [Contact Page](#contact-page)
-4. [Updating Components](#updating-components)
+5. [Updating Components](#updating-components)
    - [Navigation Bar](#navigation-bar)
    - [Footer](#footer)
-5. [Adding & Replacing Images](#adding--replacing-images)
-6. [Changing Colors & Fonts](#changing-colors--fonts)
-7. [Deployment](#deployment)
+6. [Adding & Replacing Images](#adding--replacing-images)
+7. [Changing Colors & Fonts](#changing-colors--fonts)
+8. [Deployment](#deployment)
 
 ---
 
@@ -31,8 +32,15 @@ This document explains how to update the website content for each page. You do n
 ```
 creekrobotics.org/
 ├── public/
-│   └── favicon.svg            ← Team icon shown in browser tab
+│   ├── favicon.svg            ← Team icon shown in browser tab
+│   └── CNAME                  ← Custom domain for GitHub Pages (creekrobotics.org)
+├── .github/
+│   └── workflows/
+│       ├── deploy.yml         ← CI: build and deploy main branch to creekrobotics.org
+│       └── preview.yml        ← CI: build and deploy branches to preview subdirectories
 ├── src/
+│   ├── config/
+│   │   └── club.js            ← ⭐ CENTRAL CONFIG — update club data here first!
 │   ├── assets/
 │   │   └── images/            ← All images used across the site
 │   │       ├── hero-robot.svg        (placeholder — replace with real photo)
@@ -58,7 +66,7 @@ creekrobotics.org/
 │   └── style.css              ← Global styles and design tokens
 ├── index.html                 ← HTML entry point
 ├── package.json               ← Dependencies
-├── vite.config.js             ← Build configuration
+├── vite.config.js             ← Build configuration (supports VITE_BASE_PATH for previews)
 ├── CONTENT.md                 ← This file!
 └── README.md                  ← Developer setup guide
 ```
@@ -80,6 +88,80 @@ npm run dev       # start local dev server at http://localhost:5173
 ```bash
 npm run build     # outputs to ./dist/
 npm run preview   # preview the production build locally
+```
+
+---
+
+## Club Configuration File
+
+**File:** `src/config/club.js`
+**GitHub:** https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/config/club.js
+
+This is the single source of truth for all club-specific information. **Edit this file first** for most updates — the values here are used throughout all pages and components automatically.
+
+### Key sections to update each season
+
+#### Club identity
+```js
+export const CLUB_NAME = 'Beavercreek Robotics Club'
+export const CLUB_TAGLINE = 'VEX Robotics Competition'
+```
+
+#### Current season
+```js
+export const CURRENT_SEASON_YEAR = '2025–26'
+export const CURRENT_GAME_NAME = 'Push Back'
+export const CURRENT_GAME_LINK = 'https://...'  // link to game manual
+```
+
+#### Contact email
+```js
+export const CONTACT_EMAIL = 'beavercreekhsroboticsclub@gmail.com'
+```
+
+#### Social media
+Set the URL for each platform, or leave empty (`''`) to hide that platform across the site:
+```js
+export const SOCIAL_INSTAGRAM = 'https://www.instagram.com/...'
+export const SOCIAL_FACEBOOK  = ''   // hidden
+export const SOCIAL_YOUTUBE   = ''   // hidden
+export const SOCIAL_TWITTER   = ''   // hidden
+```
+
+#### Board members (update each year after elections)
+```js
+export const BOARD = {
+  president:         'Olivia Beal',
+  vicePresident:     'Deanna Stevens',
+  treasurer:         'Lea Pochet',
+  sponsorship:       'Gina Woodard',
+  logistics:         'Haisong Ye',
+  registrar:         'Rosalind Robbins',
+  communications:    'Nicole Seflers',
+  campCoordinator:   'Deanna Stevens',
+  leagueCoordinator: 'Kari Deger',
+}
+```
+
+#### Competition schedule
+Update the `COMPETITION_SCHEDULE` array with this season's dates and event names:
+```js
+export const COMPETITION_SCHEDULE = [
+  { date: '10/25/25', name: 'North Union High School Qualifier', location: '', status: 'upcoming' },
+  // ... more events
+]
+```
+Status values: `'upcoming'` | `'completed'` | `'tbd'`
+
+#### Sponsorship tiers
+Edit amounts, add/remove tiers, or update benefits in `SPONSORSHIP_TIERS`.
+
+#### Team statistics
+```js
+export const TEAM_STATS = [
+  { value: '10+', label: 'Years Active' },
+  // ...
+]
 ```
 
 ---
@@ -348,16 +430,38 @@ After making content changes, build and deploy:
 npm run build
 ```
 
-The `dist/` folder contains the production-ready files. Upload its contents to your hosting provider (Netlify, Vercel, GitHub Pages, etc.).
+The `dist/` folder contains the production-ready files.
 
-### GitHub Pages deployment
-If using GitHub Pages with a custom domain (`creekrobotics.org`), ensure a `CNAME` file containing `creekrobotics.org` is present in the `public/` directory.
+### GitHub Actions (Automatic Deployment)
 
-### Netlify / Vercel
-Both services can auto-deploy from the `main` branch. Connect your repository and set:
-- **Build command:** `npm run build`
-- **Publish directory:** `dist`
+The repository includes two GitHub Actions workflows that automatically build and deploy the site:
 
----
+#### Production — `main` branch → `creekrobotics.org`
+**File:** `.github/workflows/deploy.yml`
+
+Every push to `main` triggers a build and deployment to the `gh-pages` branch, which GitHub Pages serves at `creekrobotics.org` (custom domain via `public/CNAME`).
+
+```
+main branch push → npm run build → gh-pages branch (root) → creekrobotics.org
+```
+
+#### Branch Previews → temporary sub-paths
+**File:** `.github/workflows/preview.yml`
+
+Every push to any other branch creates a preview deployment at a subdirectory:
+```
+feature/my-update push → npm run build → gh-pages branch /feature-my-update/ → creekrobotics.org/feature-my-update/
+```
+
+The workflow also:
+- Posts a comment on the associated pull request with the preview URL
+- Automatically removes the preview subdirectory when the branch is deleted
+
+#### GitHub Pages setup
+In repository **Settings → Pages**:
+- Source: **Deploy from a branch**
+- Branch: **gh-pages** / **(root)**
+- Custom domain: `creekrobotics.org`
+- Enforce HTTPS: ✓
 
 *For technical questions, open an issue on [GitHub](https://github.com/Beavercreek-Robotics/creekrobotics.org/issues).*

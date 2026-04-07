@@ -4,7 +4,7 @@
     <!-- Hero -->
     <HeroSection
       title="Building Tomorrow's Engineers Today"
-      subtitle="Beavercreek Robotics — FRC Team 5 empowers students through hands-on STEM experience, competitive robotics, and real-world engineering challenges."
+      :subtitle="`${CLUB_NAME} empowers students through hands-on STEM experience, competitive robotics, and real-world engineering challenges in the ${COMPETITION_PROGRAM}.`"
       backgroundClass="hero-default"
       ctaText="Learn About Our Team"
       ctaLink="/students"
@@ -21,20 +21,21 @@
             <h2>Who We Are</h2>
             <div class="divider divider-left"></div>
             <p>
-              Beavercreek Robotics is FRC Team 5, one of the original FIRST Robotics Competition 
-              teams. Based at Beavercreek High School in Beavercreek, Ohio, we've been inspiring 
-              students to pursue careers in science, technology, engineering, and mathematics for 
-              over two decades.
+              {{ CLUB_NAME }} is a 501(c)(3) educational organization based at Beavercreek High
+              School in Beavercreek, Ohio. We participate in the
+              <strong>{{ COMPETITION_PROGRAM }}</strong>, inspiring students to pursue careers in
+              science, technology, engineering, and mathematics.
             </p>
             <p style="margin-top: 1rem;">
-              Our team is built on the principles of <strong>Gracious Professionalism</strong> — 
-              competing fiercely while treating others with dignity and respect. We believe that 
-              real-world engineering experience, combined with strong mentorship, prepares students 
+              Our team is built on principles of collaboration, sportsmanship, and innovation —
+              competing fiercely while treating others with dignity and respect. We believe that
+              real-world engineering experience, combined with strong mentorship, prepares students
               not just for college, but for life.
             </p>
             <p style="margin-top: 1rem;" class="mission-statement">
-              <em>"Our mission is to inspire students to become creative problem-solvers, collaborative 
-              team members, and passionate lifelong learners."</em>
+              <em>"Our mission is to foster an interest in STEM among students via hands-on participation
+              in the VEX Robotics Competition Program, enhancing teamwork, problem-solving, and
+              technical skills."</em>
             </p>
           </div>
           <div class="about-image">
@@ -76,32 +77,25 @@
     <!-- Season Highlights -->
     <section class="section bg-white">
       <div class="container">
-        <h2 class="section-title">2024 Season Highlights</h2>
+        <h2 class="section-title">{{ CURRENT_SEASON_YEAR }} Season — "{{ CURRENT_GAME_NAME }}"</h2>
         <div class="divider"></div>
-        <p class="section-subtitle">Follow our journey through the FIRST Robotics Competition season</p>
+        <p class="section-subtitle">Follow our journey through the {{ COMPETITION_PROGRAM }} season</p>
         <div class="season-grid">
           <div class="season-card">
             <div class="season-card-header">
-              <span class="season-badge">Upcoming</span>
-              <h3>Competition Schedule</h3>
+              <span class="season-badge">Schedule</span>
+              <h3>Competition Dates</h3>
             </div>
             <ul class="competition-list">
-              <li>
-                <span class="comp-date">March 6–8</span>
-                <span class="comp-name">Ohio Valley Regional — Columbus, OH</span>
-                <span class="comp-status status-upcoming">Upcoming</span>
-              </li>
-              <li>
-                <span class="comp-date">March 20–22</span>
-                <span class="comp-name">Lake Superior Regional — Duluth, MN</span>
-                <span class="comp-status status-upcoming">Upcoming</span>
-              </li>
-              <li>
-                <span class="comp-date">April 17–20</span>
-                <span class="comp-name">FIRST Championship — Houston, TX</span>
-                <span class="comp-status status-tbd">TBD</span>
+              <li v-for="comp in COMPETITION_SCHEDULE.slice(0, 5)" :key="comp.date">
+                <span class="comp-date">{{ comp.date }}</span>
+                <span class="comp-name">{{ comp.name }}</span>
+                <span class="comp-status" :class="`status-${comp.status}`">{{ comp.status }}</span>
               </li>
             </ul>
+            <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" class="see-all-link">
+              {{ COMPETITION_CALENDAR_LABEL }} →
+            </a>
           </div>
           <div class="season-card">
             <div class="season-card-header">
@@ -118,12 +112,18 @@
           </div>
           <div class="season-card">
             <div class="season-card-header">
-              <span class="season-badge season-badge-red">Build Season</span>
-              <h3>This Year's Robot</h3>
+              <span class="season-badge season-badge-red">{{ CURRENT_SEASON_YEAR }}</span>
+              <h3>Current Game</h3>
             </div>
             <div class="robot-info">
-              <img src="../assets/images/hero-robot.svg" alt="2024 Robot" class="robot-thumb" />
-              <p>Our 2024 robot is designed to excel at the <strong>Crescendo</strong> challenge — launching notes into amplifiers and speakers, climbing the chain, and working in alliance with partner teams.</p>
+              <img src="../assets/images/hero-robot.svg" alt="VEX Robot" class="robot-thumb" />
+              <p>
+                Our {{ CURRENT_SEASON_YEAR }} robot is designed for the
+                <strong>{{ CURRENT_GAME_NAME }}</strong> challenge.
+                <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" style="color: var(--color-navy); font-weight: 600;">
+                  View game details →
+                </a>
+              </p>
             </div>
           </div>
         </div>
@@ -149,40 +149,45 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeroSection from '../components/HeroSection.vue'
+import {
+  CLUB_NAME,
+  COMPETITION_PROGRAM,
+  CURRENT_SEASON_YEAR,
+  CURRENT_GAME_NAME,
+  TEAM_STATS,
+  COMPETITION_SCHEDULE,
+  COMPETITION_CALENDAR_LINK,
+  COMPETITION_CALENDAR_LABEL,
+} from '../config/club.js'
 
-const stats = [
-  { value: '20+', label: 'Years Active' },
-  { value: '200+', label: 'Students Served' },
-  { value: '50+', label: 'Awards Won' },
-  { value: '100%', label: 'STEM Focused' },
-]
+const stats = TEAM_STATS
 
 const audienceCards = [
   {
     icon: '👨‍👩‍👧',
     title: 'Parents',
-    description: 'Learn how our program develops your student\'s skills, builds college-ready experience, and connects them to real STEM opportunities.',
+    description: `Learn how our program develops your student's skills, builds college-ready experience, and connects them to real STEM opportunities.`,
     link: '/parents',
     cta: 'Enroll Your Student',
   },
   {
     icon: '🎓',
     title: 'Students',
-    description: 'Want to build robots, write code, design mechanisms, or manage a team? There\'s a place for you here regardless of experience level.',
+    description: `Want to build robots, write code, design mechanisms, or manage a team? There's a place for you here regardless of experience level.`,
     link: '/students',
     cta: 'Join Our Team',
   },
   {
     icon: '🔧',
     title: 'Engineers',
-    description: 'Share your technical expertise and help shape the next generation of engineers. Mentoring is one of the most rewarding experiences in your career.',
+    description: `Share your technical expertise and help shape the next generation of engineers. Mentoring is one of the most rewarding experiences in your career.`,
     link: '/engineers',
     cta: 'Become a Mentor',
   },
   {
     icon: '🏢',
     title: 'Businesses',
-    description: 'Invest in your community\'s future workforce. Sponsoring FRC Team 5 provides visibility, tax benefits, and direct impact on local youth.',
+    description: `Invest in your community's future workforce. Sponsoring ${CLUB_NAME} provides visibility, tax benefits, and direct impact on local youth.`,
     link: '/sponsors',
     cta: 'Sponsor Our Team',
   },
@@ -398,6 +403,20 @@ const audienceCards = [
 
 .status-upcoming { background: #c6f6d5; color: #276749; }
 .status-tbd { background: #feebc8; color: #7b341e; }
+.status-completed { background: #bee3f8; color: #2a69ac; }
+
+.see-all-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-navy-light);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.see-all-link:hover {
+  text-decoration: underline;
+}
 
 .achievement-list {
   display: flex;

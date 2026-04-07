@@ -97,7 +97,7 @@
     <!-- Current Sponsors -->
     <section class="section bg-light">
       <div class="container">
-        <h2 class="section-title">Thank You to Our Supporters</h2>
+        <h2 class="section-title">Thank You to Our {{ CURRENT_SEASON_YEAR }} Supporters</h2>
         <div class="divider"></div>
         <p class="section-subtitle">We are grateful for the ongoing support of these organizations</p>
         <div class="sponsors-placeholder">
@@ -166,6 +166,14 @@
 <script setup>
 import { ref } from 'vue'
 import HeroSection from '../components/HeroSection.vue'
+import {
+  CLUB_NAME,
+  SPONSORSHIP_TIERS,
+  SPONSORSHIP_CONTACT_NAME,
+  SPONSORSHIP_CONTACT_EMAIL,
+  CONTACT_EMAIL,
+  CURRENT_SEASON_YEAR,
+} from '../config/club.js'
 
 const form = ref({ business: '', contact: '', email: '', phone: '', tier: '', message: '' })
 const submitting = ref(false)
@@ -179,11 +187,13 @@ const handleSubmit = async () => {
   form.value = { business: '', contact: '', email: '', phone: '', tier: '', message: '' }
 }
 
+const tiers = SPONSORSHIP_TIERS
+
 const whySponsors = [
   {
     icon: '🌟',
     title: 'Community Impact',
-    description: 'Directly invest in the futures of Beavercreek students. Your sponsorship funds hands-on STEM education that shapes careers and lives.'
+    description: `Directly invest in the futures of Beavercreek students. Your sponsorship funds hands-on STEM education that shapes careers and lives.`
   },
   {
     icon: '📣',
@@ -193,72 +203,12 @@ const whySponsors = [
   {
     icon: '💸',
     title: 'Tax Deductible',
-    description: 'As a 501(c)(3) nonprofit, all donations to Beavercreek Robotics are fully tax-deductible at the federal and Ohio state level.'
+    description: `As a 501(c)(3) nonprofit, all donations to ${CLUB_NAME} are fully tax-deductible at the federal and Ohio state level.`
   },
   {
     icon: '👷',
     title: 'Workforce Pipeline',
-    description: 'Today\'s sponsored students are tomorrow\'s engineers. Build relationships early with motivated, skilled candidates for your company.'
-  },
-]
-
-const tiers = [
-  {
-    icon: '🥉',
-    name: 'Bronze',
-    amount: '$500+',
-    highlight: false,
-    cta: 'Become Bronze',
-    benefits: [
-      'Name and link on team website',
-      'Thank-you post on social media',
-      'Tax receipt provided',
-      'Periodic team update emails',
-    ],
-  },
-  {
-    icon: '🥈',
-    name: 'Silver',
-    amount: '$1,000+',
-    highlight: false,
-    cta: 'Become Silver',
-    benefits: [
-      'All Bronze benefits',
-      'Logo on competition robot',
-      'Company banner at competitions',
-      'Logo on team materials',
-      'Personal thank-you from team',
-    ],
-  },
-  {
-    icon: '🥇',
-    name: 'Gold',
-    amount: '$2,500+',
-    highlight: true,
-    cta: 'Become Gold',
-    benefits: [
-      'All Silver benefits',
-      'Logo on team shirts (worn at events)',
-      'Feature in team newsletter',
-      'Team visit / facility tour available',
-      'Prominent website placement',
-      'End-of-season impact report',
-    ],
-  },
-  {
-    icon: '💎',
-    name: 'Platinum',
-    amount: '$5,000+',
-    highlight: false,
-    cta: 'Become Platinum',
-    benefits: [
-      'All Gold benefits',
-      'Largest logo placement on robot and shirts',
-      'VIP experience at competitions',
-      'Opportunity to address the team',
-      'Dedicated social media spotlight',
-      'Annual partner recognition plaque',
-    ],
+    description: `Today's sponsored students are tomorrow's engineers. Build relationships early with motivated, skilled candidates for your company.`
   },
 ]
 

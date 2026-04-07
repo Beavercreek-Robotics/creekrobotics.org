@@ -3,7 +3,7 @@
   <div class="engineers-page">
     <HeroSection
       title="Share Your Expertise. Shape the Future."
-      subtitle="Your skills and experience can ignite a passion for engineering in the next generation. Become a mentor with FRC Team 5 and make a lasting impact."
+      :subtitle="`Your skills and experience can ignite a passion for engineering in the next generation. Become a mentor with ${CLUB_NAME} and make a lasting impact.`"
       backgroundClass="hero-engineers"
       ctaText="Get Started as a Mentor"
       ctaLink="/contact"
@@ -146,6 +146,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import HeroSection from '../components/HeroSection.vue'
+import { CLUB_NAME, COMPETITION_PROGRAM } from '../config/club.js'
 
 const whyMentor = [
   {
@@ -233,13 +234,13 @@ const timeCommitment = [
 const requirements = [
   {
     icon: '✅',
-    title: 'FIRST Background Check',
-    description: 'Required for all adults working with minors. Process is simple and handled through FIRST Inspires online portal.'
+    title: 'Background Check',
+    description: 'Required for all adults working with minors. Process is handled through the school district portal and is simple and confidential.'
   },
   {
     icon: '📋',
     title: 'Youth Protection Training',
-    description: 'FIRST provides a free online youth protection training course. Takes about 30 minutes to complete.'
+    description: 'A brief online youth protection training course is required. Takes about 30 minutes to complete and is provided by the school district.'
   },
   {
     icon: '🎯',
@@ -251,19 +252,19 @@ const requirements = [
 const getStartedSteps = [
   {
     title: 'Contact Us to Express Interest',
-    desc: 'Fill out our mentor interest form or send us an email. Tell us a bit about your background and what you\'d like to help with. We\'ll respond within 48 hours.'
+    desc: `Fill out our mentor interest form or send us an email at beavercreekhsroboticsclub@gmail.com. Tell us a bit about your background and what you'd like to help with. We'll respond within 48 hours.`
   },
   {
     title: 'Complete Background Check Application',
-    desc: 'We\'ll send you a link to the FIRST background check portal. The process is quick and confidential. Most results are returned within a few days.'
+    desc: `We'll guide you through the background check process. Most results are returned within a few days.`
   },
   {
-    title: 'Attend Orientation Meeting',
-    desc: 'Come meet the team! We\'ll walk you through our operations, introduce you to students and other mentors, and help you find the right role for your skills and availability.'
+    title: 'Attend a Team Meeting',
+    desc: `Come meet the students and other mentors! We'll walk you through our operations and help you find the right role for your skills and availability.`
   },
   {
-    title: 'Join a Team!',
-    desc: 'You\'re official! Start attending meetings, jump into a sub-team, and begin making a difference. Don\'t worry about knowing everything — learning together is part of the fun.'
+    title: 'Start Mentoring!',
+    desc: `You're official! Start attending meetings, work alongside students, and begin making a difference. Learning together is part of the fun.`
   },
 ]
 
