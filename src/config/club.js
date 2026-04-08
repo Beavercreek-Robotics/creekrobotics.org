@@ -1,4 +1,6 @@
 // Source: https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/config/club.js
+import generatedTeamStats from "../generated/team-stats.js";
+
 //
 // ============================================================
 //  CLUB CONFIGURATION FILE — Beavercreek Robotics Club
@@ -175,12 +177,18 @@ export const SPONSORSHIP_TIERS = [
 
 // ── Team Statistics (shown on Home and other pages) ───────────
 // Update these periodically to reflect current team achievements
-export const TEAM_STATS = [
+const DEFAULT_TEAM_STATS = [
   { value: "10+", label: "Years Active" },
+  { value: "0", label: "Teams This Season" },
   { value: "100+", label: "Students Served" },
   { value: "30+", label: "Awards Won" },
   { value: "100%", label: "STEM Focused" },
 ];
+
+export const TEAM_STATS =
+  Array.isArray(generatedTeamStats) && generatedTeamStats.length > 0
+    ? generatedTeamStats
+    : DEFAULT_TEAM_STATS;
 
 // ── Footer copy ───────────────────────────────────────────────
 export const FOOTER_DESCRIPTION =

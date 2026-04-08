@@ -13,11 +13,145 @@ const accomplishmentsOutputPath = path.resolve(
   scriptDir,
   "../src/generated/recent-accomplishments.json",
 );
+const teamStatsOutputPath = path.resolve(
+  scriptDir,
+  "../src/generated/team-stats.js",
+);
 const allowedStatuses = new Set(["upcoming", "completed", "tbd"]);
 const apiBaseUrl = "https://www.robotevents.com/api/v2";
 const suffixAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const defaultSuffixDepth = 1;
-const envFileDisallowedKeys = new Set(["ROBOTEVENTS_API_TOKEN"]);
+const envFileDisallowedKeys = new Set();
+const apiMaxRetries = 5;
+const rateLimitSafetySeconds = 1;
+
+const rateLimitState = {
+  limit: null,
+  remaining: null,
+  resetEpochSeconds: null,
+};
+
+const rateLimitReportState = {
+  lastReportedLimit: null,
+  minRemainingSeen: null,
+};
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+function parseRateLimitInteger(value) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? Math.max(0, Math.floor(parsed)) : null;
+}
+
+function getRateLimitLowWatermark(limit) {
+  if (!Number.isInteger(limit) || limit <= 0) {
+    return 0;
+  }
+
+  return Math.max(1, Math.floor(limit * 0.02));
+}
+
+function logRateLimitHeaders(headers) {
+  for (const [name, value] of headers.entries()) {
+    if (
+      name.toLowerCase().startsWith("x-ratelimit") ||
+      name.toLowerCase() === "retry-after"
+    ) {
+      console.log(`RobotEvents header ${name}: ${value}`);
+    }
+  }
+}
+
+function updateRateLimitStateFromHeaders(headers) {
+  logRateLimitHeaders(headers);
+
+  const limit = parseRateLimitInteger(headers.get("x-ratelimit-limit"));
+  const remaining = parseRateLimitInteger(headers.get("x-ratelimit-remaining"));
+  const resetEpochSeconds = parseRateLimitInteger(
+    headers.get("x-ratelimit-reset"),
+  );
+
+  if (limit !== null) {
+    rateLimitState.limit = limit;
+
+    if (rateLimitReportState.lastReportedLimit !== limit) {
+      const lowWatermark = getRateLimitLowWatermark(limit);
+
+      console.log(
+        `RobotEvents rate limit: ${limit} requests/window, low watermark=${lowWatermark}, reset=${resetEpochSeconds}, now=${Math.floor(Date.now() / 1000)}`,
+      );
+      rateLimitReportState.lastReportedLimit = limit;
+    }
+  }
+
+  if (remaining !== null) {
+    rateLimitState.remaining = remaining;
+
+    if (
+      rateLimitReportState.minRemainingSeen === null ||
+      remaining < rateLimitReportState.minRemainingSeen
+    ) {
+      rateLimitReportState.minRemainingSeen = remaining;
+    }
+  }
+
+  if (resetEpochSeconds !== null) {
+    rateLimitState.resetEpochSeconds = resetEpochSeconds;
+  }
+}
+
+async function maybeWaitForRateLimitWindow() {
+  const lowWatermark = getRateLimitLowWatermark(rateLimitState.limit);
+
+  if (
+    rateLimitState.remaining === null ||
+    rateLimitState.remaining > lowWatermark ||
+    rateLimitState.resetEpochSeconds === null
+  ) {
+    return;
+  }
+
+  const nowEpochSeconds = Math.floor(Date.now() / 1000);
+  console.log(
+    `Rate limit approached. Remaining: ${rateLimitState.remaining} Reset: ${rateLimitState.resetEpochSeconds}  Now: ${nowEpochSeconds}  Waiting: ${
+      rateLimitState.resetEpochSeconds -
+      nowEpochSeconds +
+      rateLimitSafetySeconds
+    } seconds before retrying.`,
+  );
+  if (rateLimitState.resetEpochSeconds <= nowEpochSeconds) {
+    return;
+  }
+
+  const waitSeconds =
+    rateLimitState.resetEpochSeconds - nowEpochSeconds + rateLimitSafetySeconds;
+  await delay(waitSeconds * 1000);
+}
+
+function getRateLimitBackoffMs(headers, attempt) {
+  const retryAfterHeader = Number(headers.get("retry-after"));
+  if (Number.isFinite(retryAfterHeader) && retryAfterHeader > 0) {
+    return retryAfterHeader * 1000;
+  }
+
+  const resetEpochSeconds = parseRateLimitInteger(
+    headers.get("x-ratelimit-reset"),
+  );
+  if (resetEpochSeconds !== null) {
+    const nowEpochSeconds = Math.floor(Date.now() / 1000);
+    if (resetEpochSeconds > nowEpochSeconds) {
+      return (
+        (resetEpochSeconds - nowEpochSeconds + rateLimitSafetySeconds) * 1000
+      );
+    }
+  }
+
+  return 1000 * 2 ** attempt;
+}
 
 function parsePrefixList(raw) {
   if (!raw) {
@@ -152,21 +286,47 @@ function sortUniqueTeamNumbers(teamNumbers) {
 }
 
 async function fetchRobotEventsPage(url, token) {
-  const response = await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/json",
-    },
-  });
+  for (let attempt = 0; attempt <= apiMaxRetries; attempt += 1) {
+    await maybeWaitForRateLimitWindow();
 
-  if (!response.ok) {
+    const response = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/json",
+      },
+    });
+
+    updateRateLimitStateFromHeaders(response.headers);
+
+    if (response.ok) {
+      return response.json();
+    }
+
     const details = await response.text();
+    const shouldRetry =
+      response.status === 429 ||
+      response.status === 502 ||
+      response.status === 503 ||
+      response.status === 403;
+
+    if (shouldRetry && attempt < apiMaxRetries) {
+      const retryAfterMs = getRateLimitBackoffMs(response.headers, attempt);
+      logRateLimitHeaders(response.headers);
+      console.log(
+        `RobotEvents API backoff: status=${response.status}, attempt=${attempt + 1}/${apiMaxRetries}, waiting=${Math.ceil(retryAfterMs / 1000)}s before retry.`,
+      );
+      await delay(retryAfterMs);
+      continue;
+    }
+
+    logRateLimitHeaders(response.headers);
+
     throw new Error(
-      `RobotEvents API request failed (${response.status} ${response.statusText}): ${details}`,
+      `RobotEvents API request failed (${url} -- ${response.status} ${response.statusText}): ${details}`,
     );
   }
 
-  return response.json();
+  throw new Error("RobotEvents API request failed after retry attempts.");
 }
 
 function buildTeamNumberCandidates(prefixes, suffixDepth) {
@@ -377,6 +537,36 @@ function normalizeTeam(team, index) {
   };
 }
 
+function getEventStartYear(event) {
+  const parsedDate = Date.parse(event?.start ?? "");
+
+  if (!Number.isFinite(parsedDate) || parsedDate <= 0) {
+    return null;
+  }
+
+  return new Date(parsedDate).getUTCFullYear();
+}
+
+function createTeamStats({ yearsActive, teamsThisSeason, awardsWon }) {
+  const safeYearsActive = Number.isInteger(yearsActive)
+    ? Math.max(yearsActive, 1)
+    : 1;
+  const safeTeamsThisSeason = Number.isInteger(teamsThisSeason)
+    ? Math.max(teamsThisSeason, 0)
+    : 0;
+  const safeAwardsWon = Number.isInteger(awardsWon)
+    ? Math.max(awardsWon, 0)
+    : 0;
+
+  return [
+    { value: `${safeYearsActive}+`, label: "Years Active" },
+    { value: String(safeTeamsThisSeason), label: "Teams This Season" },
+    { value: "100+", label: "Students Served" },
+    { value: `${safeAwardsWon}+`, label: "Awards Won" },
+    { value: "100%", label: "STEM Focused" },
+  ];
+}
+
 async function main() {
   await loadDotEnvLocal();
 
@@ -514,6 +704,62 @@ async function main() {
     );
   }
 
+  let oldestCompetitionYear = null;
+  for (const teamId of teamIds) {
+    const allTeamEvents = await fetchEventsForTeam(token, null, teamId);
+
+    for (const event of allTeamEvents) {
+      const year = getEventStartYear(event);
+      if (!year) {
+        continue;
+      }
+
+      if (oldestCompetitionYear === null || year < oldestCompetitionYear) {
+        oldestCompetitionYear = year;
+      }
+    }
+  }
+
+  const currentYear = new Date().getUTCFullYear();
+  const yearsActive =
+    oldestCompetitionYear === null
+      ? 1
+      : Math.max(1, currentYear - oldestCompetitionYear + 1);
+
+  const allAwards = [];
+  for (const teamId of teamIds) {
+    const teamAwardsAllSeasons = await fetchAwardsForTeam(token, null, teamId);
+    allAwards.push(
+      ...teamAwardsAllSeasons.map((award) => ({
+        ...award,
+        teamId,
+      })),
+    );
+  }
+
+  const uniqueAwardsWon = new Set(
+    allAwards.map((award, index) => {
+      if (Number.isInteger(award?.id)) {
+        return `${award.id}:${award.teamId}`;
+      }
+
+      const title = typeof award?.title === "string" ? award.title.trim() : "";
+      const eventId = Number.isInteger(award?.event?.id)
+        ? award.event.id
+        : "na";
+      return `${award.teamId}:${eventId}:${title}:${index}`;
+    }),
+  );
+
+  const teamsThisSeason = normalizedTeams.filter(
+    (team) => team.registered,
+  ).length;
+  const teamStats = createTeamStats({
+    yearsActive,
+    teamsThisSeason,
+    awardsWon: uniqueAwardsWon.size,
+  });
+
   const recentAccomplishments = awards
     .map((award) => {
       const title = typeof award?.title === "string" ? award.title.trim() : "";
@@ -563,9 +809,18 @@ async function main() {
     `${JSON.stringify(recentAccomplishments, null, 2)}\n`,
     "utf8",
   );
+  await writeFile(
+    teamStatsOutputPath,
+    `export default ${JSON.stringify(teamStats, null, 2)};\n`,
+    "utf8",
+  );
 
   console.log(
-    `Generated ${path.relative(process.cwd(), outputPath)}, ${path.relative(process.cwd(), teamsOutputPath)}, and ${path.relative(process.cwd(), accomplishmentsOutputPath)} from RobotEvents API (${normalized.length} events, ${recentAccomplishments.length} accomplishments across ${teamIds.length} teams).`,
+    `Generated ${path.relative(process.cwd(), outputPath)}, ${path.relative(process.cwd(), teamsOutputPath)}, ${path.relative(process.cwd(), accomplishmentsOutputPath)}, and ${path.relative(process.cwd(), teamStatsOutputPath)} from RobotEvents API (${normalized.length} events, ${recentAccomplishments.length} accomplishments across ${teamIds.length} teams, ${teamStats.find((stat) => stat.label === "Awards Won")?.value ?? "0"} awards, ${teamStats.find((stat) => stat.label === "Years Active")?.value ?? "1+"} active years).`,
+  );
+
+  console.log(
+    `RobotEvents lowest x-ratelimit-remaining observed: ${rateLimitReportState.minRemainingSeen ?? "unknown"}.`,
   );
 }
 

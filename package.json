@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "generate:events": "node ./scripts/generate-events-json.mjs",
-    "predev": "npm run generate:events",
     "prebuild": "npm run generate:events",
+    "serve": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

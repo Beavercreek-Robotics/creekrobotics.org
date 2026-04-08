@@ -181,6 +181,8 @@ Use `ROBOTEVENTS_TEAM_PREFIXES` only when you need a temporary runtime override.
 
 The generator script reads `.env.local` only for optional non-secret local overrides and uses runtime environment variables in GitHub Actions.
 
+Local Vite development uses the committed files in `src/generated/` unless you explicitly refresh them with `npm run generate:events`.
+
 #### Sponsorship tiers
 
 Edit amounts, add/remove tiers, or update benefits in `SPONSORSHIP_TIERS`.
