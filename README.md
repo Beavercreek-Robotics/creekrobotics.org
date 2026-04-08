@@ -1,6 +1,6 @@
 # creekrobotics.org
 
-The official website for **Beavercreek Robotics — FRC Team 5**, built with [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/).
+The official website for **Beavercreek Robotics Club**, built with [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/).
 
 ## Quick Start
 
@@ -8,6 +8,8 @@ The official website for **Beavercreek Robotics — FRC Team 5**, built with [Vu
 npm install
 npm run dev       # http://localhost:5173
 ```
+
+Local development uses the checked-in files in `src/generated/` by default. If you want fresh RobotEvents data locally, set `ROBOTEVENTS_API_TOKEN` in your shell and run `npm run generate:events` before starting Vite.
 
 ## Build
 
@@ -52,6 +54,7 @@ See **[CONTENT.md](./CONTENT.md)** for a plain-English guide to updating text, i
 ## Source Links
 
 Every view and component contains a comment linking back to its source file on GitHub:
+
 ```
 <!-- Source: https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/views/HomeView.vue -->
 ```

@@ -2,7 +2,7 @@
 
 This document explains how to update the website content for each page. You do not need to know how to code to make most content updates — just edit the appropriate file in the `src/` directory.
 
-**GitHub repository:** https://github.com/Beavercreek-Robotics/creekrobotics.org
+**GitHub repository:** <https://github.com/Beavercreek-Robotics/creekrobotics.org>
 
 ---
 
@@ -41,6 +41,10 @@ creekrobotics.org/
 ├── src/
 │   ├── config/
 │   │   └── club.js            ← ⭐ CENTRAL CONFIG — update club data here first!
+│   ├── data/
+│   │   └── competition-schedule.json ← Competition schedule source data
+│   ├── generated/
+│   │   └── competition-schedule.json ← Generated during build / GitHub Actions
 │   ├── assets/
 │   │   └── images/            ← All images used across the site
 │   │       ├── hero-robot.svg        (placeholder — replace with real photo)
@@ -76,15 +80,18 @@ creekrobotics.org/
 ## How to Run & Build
 
 ### Prerequisites
+
 - [Node.js](https://nodejs.org/) v18 or newer
 
 ### Development (live preview)
+
 ```bash
 npm install       # only needed once
 npm run dev       # start local dev server at http://localhost:5173
 ```
 
 ### Production Build
+
 ```bash
 npm run build     # outputs to ./dist/
 npm run preview   # preview the production build locally
@@ -95,19 +102,21 @@ npm run preview   # preview the production build locally
 ## Club Configuration File
 
 **File:** `src/config/club.js`
-**GitHub:** https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/config/club.js
+**GitHub:** <https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/config/club.js>
 
-This is the single source of truth for all club-specific information. **Edit this file first** for most updates — the values here are used throughout all pages and components automatically.
+This is the single source of truth for most club-specific information. **Edit this file first** for most updates — the values here are used throughout all pages and components automatically.
 
 ### Key sections to update each season
 
 #### Club identity
+
 ```js
 export const CLUB_NAME = 'Beavercreek Robotics Club'
 export const CLUB_TAGLINE = 'VEX Robotics Competition'
 ```
 
 #### Current season
+
 ```js
 export const CURRENT_SEASON_YEAR = '2025–26'
 export const CURRENT_GAME_NAME = 'Push Back'
@@ -115,12 +124,15 @@ export const CURRENT_GAME_LINK = 'https://...'  // link to game manual
 ```
 
 #### Contact email
+
 ```js
 export const CONTACT_EMAIL = 'beavercreekhsroboticsclub@gmail.com'
 ```
 
 #### Social media
+
 Set the URL for each platform, or leave empty (`''`) to hide that platform across the site:
+
 ```js
 export const SOCIAL_INSTAGRAM = 'https://www.instagram.com/...'
 export const SOCIAL_FACEBOOK  = ''   // hidden
@@ -129,6 +141,7 @@ export const SOCIAL_TWITTER   = ''   // hidden
 ```
 
 #### Board members (update each year after elections)
+
 ```js
 export const BOARD = {
   president:         'Olivia Beal',
@@ -151,7 +164,13 @@ export const COMPETITION_SCHEDULE = [
   // ... more events
 ]
 ```
-Status values: `'upcoming'` | `'completed'` | `'tbd'`
+
+Team prefixes should be maintained in `src/config/club.js` via `TEAM_NUMBER_PREFIXES`.
+Use `ROBOTEVENTS_TEAM_PREFIXES` only when you need a temporary runtime override.
+
+The generator script reads `.env.local` only for optional non-secret local overrides and uses runtime environment variables in GitHub Actions.
+
+Local Vite development uses the committed files in `src/generated/` unless you explicitly refresh them with `npm run generate:events`.
 
 #### Team number prefixes (Robot Events integration)
 `TEAM_NUMBERS` in `src/config/club.js` controls which teams are looked up on [robotevents.com](https://www.robotevents.com).  Every team whose robot-events number *starts with* one of these prefixes is included in live schedule lookups.
@@ -168,9 +187,11 @@ To enable an API key (which removes rate-limiting):
 3. For GitHub Actions deployments add the secret as `VITE_ROBOTEVENTS_API_KEY` in your repo/org secrets.
 
 #### Sponsorship tiers
+
 Edit amounts, add/remove tiers, or update benefits in `SPONSORSHIP_TIERS`.
 
 #### Team statistics
+
 ```js
 export const TEAM_STATS = [
   { value: '10+', label: 'Years Active' },
@@ -183,11 +204,14 @@ export const TEAM_STATS = [
 ## Updating Each Page
 
 ### Home Page
+
 **File:** `src/views/HomeView.vue`
 **URL:** `/`
 
 #### Team statistics (the "20+ Years Active" block)
+
 Find the `stats` array in the `<script setup>` section and update the values:
+
 ```js
 const stats = [
   { value: '20+', label: 'Years Active' },    // ← update year count
@@ -198,11 +222,13 @@ const stats = [
 ```
 
 #### Hero headline and subtitle
+
 Find the `<HeroSection>` tag near the top of the `<template>` section:
+
 ```html
 <HeroSection
   title="Building Tomorrow's Engineers Today"   ← change this
-  subtitle="Beavercreek Robotics — FRC Team 5…" ← change this
+  subtitle="Beavercreek Robotics Club…" ← change this
   ...
 />
 ```
@@ -213,35 +239,45 @@ The competition dates shown on the home page are fetched live from the Robot Eve
 To force static content only, simply clear `TEAM_NUMBERS` or leave the API key unset — the page will always display whatever is in `COMPETITION_SCHEDULE`.
 
 #### Achievements list
+
 Find `<ul class="achievement-list">` and update the list items.
 
 #### About section text
+
 Find the `<section class="section bg-white">` block and update the paragraph text.
 
 ---
 
 ### For Parents
+
 **File:** `src/views/ForParentsView.vue`
 **URL:** `/parents`
 
 #### Enrollment steps
+
 Find the `enrollmentSteps` array in `<script setup>`:
+
 ```js
 const enrollmentSteps = [
   { step: '01', title: 'Attend an Info Night', description: '...' },
   ...
 ]
 ```
+
 Update each step's `title` and `description`.
 
 #### Meeting schedule
+
 Find the schedule table in the `<template>` and update days, times, and descriptions.
 
 #### Costs table
+
 Find the `costs` array and update amounts and line items.
 
 #### FAQ accordion
+
 Find the `faqs` array and add, remove, or edit question/answer pairs:
+
 ```js
 const faqs = [
   { q: 'Does my child need coding experience?', a: '...' },
@@ -252,11 +288,14 @@ const faqs = [
 ---
 
 ### For Students
+
 **File:** `src/views/ForStudentsView.vue`
 **URL:** `/students`
 
 #### Learning tracks
+
 Find the `tracks` array and update the four tracks (Mechanical, Electrical, Software, Business):
+
 ```js
 const tracks = [
   {
@@ -270,7 +309,9 @@ const tracks = [
 ```
 
 #### Student testimonials
+
 Find the `testimonials` array and update with real student quotes (use first name and graduation year only for privacy):
+
 ```js
 const testimonials = [
   { quote: '...', name: 'Alex J.', year: "Class of '25", role: 'Lead Programmer' },
@@ -279,34 +320,43 @@ const testimonials = [
 ```
 
 #### How to join steps
+
 Find the `joinSteps` array and update the steps with current information (registration links, deadlines, etc.).
 
 ---
 
 ### For Engineers / Mentors
+
 **File:** `src/views/ForEngineersView.vue`
 **URL:** `/engineers`
 
 #### Mentorship types
+
 Find the `mentorTypes` array and update the types of mentorship available.
 
 #### Time commitment details
+
 Find the `commitments` array and update hours per week and descriptions.
 
 #### Impact statistics
+
 Find the `impactStats` array in `<script setup>` and update the numbers.
 
 #### Mentor testimonials
+
 Find the `mentorTestimonials` array and update with real mentor quotes.
 
 ---
 
 ### For Sponsors
+
 **File:** `src/views/ForSponsorsView.vue`
 **URL:** `/sponsors`
 
 #### Sponsorship tiers
+
 Find the `tiers` array and update amounts and benefits:
+
 ```js
 const tiers = [
   {
@@ -323,7 +373,9 @@ const tiers = [
 ```
 
 #### Current sponsors
+
 The `<!-- Current Sponsors -->` section shows placeholder slots. Replace the placeholder grid with actual sponsor logo `<img>` tags wrapped in `<a>` links. Example:
+
 ```html
 <div class="sponsors-grid">
   <a href="https://www.sponsorcompany.com" target="_blank" rel="noopener">
@@ -331,25 +383,31 @@ The `<!-- Current Sponsors -->` section shows placeholder slots. Replace the pla
   </a>
 </div>
 ```
+
 Place sponsor logos in `src/assets/images/sponsors/`.
 
 #### Budget breakdown bars
+
 Find the `budgetItems` array and update the percentages if your budget allocation changes.
 
 ---
 
 ### Contact Page
+
 **File:** `src/views/ContactView.vue`
 **URL:** `/contact`
 
 #### Meeting location and hours
+
 Find the contact info section and update:
+
 - School address
 - Meeting days and times
 - Email address
 - Phone number (if applicable)
 
 #### Social media links
+
 Find the social link `<a>` tags and replace `href="#"` with actual URLs.
 
 ---
@@ -357,34 +415,42 @@ Find the social link `<a>` tags and replace `href="#"` with actual URLs.
 ## Updating Components
 
 ### Navigation Bar
+
 **File:** `src/components/NavBar.vue`
-**GitHub:** https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/components/NavBar.vue
+**GitHub:** <https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/components/NavBar.vue>
 
 To add a new page to the navigation, add a new `<RouterLink>` in the `.nav-links` div:
+
 ```html
 <RouterLink to="/new-page" @click="closeMenu" class="nav-link">New Page</RouterLink>
 ```
 
 To update the team name or tagline shown in the header, find `.brand-name` and `.brand-subtitle`:
+
 ```html
 <span class="brand-name">Beavercreek Robotics</span>
-<span class="brand-subtitle">FRC Team 5</span>
+<span class="brand-subtitle">VEX Robotics Competition</span>
 ```
 
 ### Footer
+
 **File:** `src/components/AppFooter.vue`
-**GitHub:** https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/components/AppFooter.vue
+**GitHub:** <https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/components/AppFooter.vue>
 
 #### Contact information
+
 Find the `.footer-contact` section and update the address, email, and meeting times.
 
 #### Social media links
+
 Find the `.social-links` div and replace `href="#"` with actual URLs for each platform:
+
 ```html
 <a href="https://www.facebook.com/beavercreekrobotics" class="social-link" ...>
 ```
 
 #### Copyright year
+
 Find `© 2024` near the bottom and update the year.
 
 ---
@@ -394,6 +460,7 @@ Find `© 2024` near the bottom and update the year.
 All images live in `src/assets/images/`. The current placeholder SVGs should be replaced with real team photos.
 
 ### Recommended image sizes
+
 | Image | Recommended Size | Format |
 |-------|-----------------|--------|
 | Hero background | 1920×1080 px | JPG/WebP |
@@ -402,17 +469,22 @@ All images live in `src/assets/images/`. The current placeholder SVGs should be 
 | Sponsor logos | 300×150 px | PNG (transparent bg) |
 
 ### How to replace a placeholder
+
 1. Add your image file to `src/assets/images/` (e.g., `team-photo-2024.jpg`)
 2. Find the `<img>` tag referencing the old placeholder:
+
    ```html
    <img src="../assets/images/team-photo.svg" alt="Team photo" />
    ```
+
 3. Update the `src` and `alt` attributes:
+
    ```html
    <img src="../assets/images/team-photo-2024.jpg" alt="2024 Beavercreek Robotics team photo" />
    ```
 
 ### Best practices for alt text
+
 - Describe what's in the image for accessibility
 - Include the year and context: `"2024 Beavercreek Robotics team with their Crescendo robot"`
 - Keep it under 125 characters
@@ -433,6 +505,7 @@ All colors and fonts are defined as CSS variables in `src/style.css`. Change the
 ```
 
 To use a different Google Font:
+
 1. Update the `@import` at the top of `src/style.css`
 2. Update the `--font-family` variable
 
@@ -453,6 +526,7 @@ The `dist/` folder contains the production-ready files.
 The repository includes two GitHub Actions workflows that automatically build and deploy the site:
 
 #### Production — `main` branch → `creekrobotics.org`
+
 **File:** `.github/workflows/deploy.yml`
 
 Every push to `main` triggers a build and deployment to the `gh-pages` branch, which GitHub Pages serves at `creekrobotics.org` (custom domain via `public/CNAME`).
@@ -462,19 +536,24 @@ main branch push → npm run build → gh-pages branch (root) → creekrobotics.
 ```
 
 #### Branch Previews → temporary sub-paths
+
 **File:** `.github/workflows/preview.yml`
 
 Every push to any other branch creates a preview deployment at a subdirectory:
+
 ```
 feature/my-update push → npm run build → gh-pages branch /feature-my-update/ → creekrobotics.org/feature-my-update/
 ```
 
 The workflow also:
+
 - Posts a comment on the associated pull request with the preview URL
 - Automatically removes the preview subdirectory when the branch is deleted
 
 #### GitHub Pages setup
+
 In repository **Settings → Pages**:
+
 - Source: **Deploy from a branch**
 - Branch: **gh-pages** / **(root)**
 - Custom domain: `creekrobotics.org`

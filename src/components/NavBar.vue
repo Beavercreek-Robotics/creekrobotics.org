@@ -3,43 +3,45 @@
   <nav class="navbar">
     <div class="nav-inner">
       <RouterLink to="/" class="brand-link" @click="closeMenu">
-        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40" height="40">
-          <rect x="8" y="14" width="32" height="24" rx="5" fill="#d69e2e"/>
-          <rect x="22" y="5" width="4" height="9" rx="2" fill="#d69e2e"/>
-          <circle cx="24" cy="4" r="4" fill="#c53030"/>
-          <rect x="13" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-          <rect x="27" y="20" width="8" height="7" rx="2" fill="#1a365d"/>
-          <circle cx="16" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-          <circle cx="30" cy="22" r="2" fill="#ffffff" opacity="0.8"/>
-          <rect x="15" y="30" width="18" height="4" rx="2" fill="#c53030"/>
-          <rect x="19" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <rect x="23" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <rect x="27" y="30" width="2" height="4" fill="#d69e2e" opacity="0.6"/>
-          <circle cx="8" cy="24" r="3" fill="#c53030"/>
-          <circle cx="40" cy="24" r="3" fill="#c53030"/>
-          <rect x="19" y="38" width="10" height="5" rx="2" fill="#d69e2e"/>
-        </svg>
+        <img :src="LOGO_SMALL" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
         <div class="brand-text">
           <span class="brand-name">{{ CLUB_NAME }}</span>
           <span class="brand-subtitle">{{ CLUB_TAGLINE }}</span>
         </div>
       </RouterLink>
 
-      <div class="nav-links" :class="{ 'nav-open': menuOpen }">
-        <RouterLink to="/" @click="closeMenu" class="nav-link">Home</RouterLink>
-        <RouterLink to="/parents" @click="closeMenu" class="nav-link">For Parents</RouterLink>
-        <RouterLink to="/students" @click="closeMenu" class="nav-link">For Students</RouterLink>
-        <RouterLink to="/engineers" @click="closeMenu" class="nav-link">For Engineers</RouterLink>
-        <RouterLink to="/sponsors" @click="closeMenu" class="nav-link">For Sponsors</RouterLink>
-        <RouterLink to="/contact" @click="closeMenu" class="nav-link">Contact</RouterLink>
-        <RouterLink to="/contact" class="btn-join" @click="closeMenu">Join Us</RouterLink>
-      </div>
-
-      <button class="hamburger" @click="toggleMenu" :class="{ open: menuOpen }" aria-label="Toggle menu">
+      <button class="navbar-toggler hamburger" type="button" @click="toggleMenu" :class="{ open: menuOpen }"
+        aria-label="Toggle menu" :aria-expanded="menuOpen">
         <span></span>
         <span></span>
         <span></span>
       </button>
+
+      <div class="collapse navbar-collapse nav-links" :class="{ show: menuOpen }">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <RouterLink to="/" @click="closeMenu" class="nav-link">Home</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/parents" @click="closeMenu" class="nav-link">For Parents</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/students" @click="closeMenu" class="nav-link">For Students</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/engineers" @click="closeMenu" class="nav-link">For Engineers</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/sponsors" @click="closeMenu" class="nav-link">For Sponsors</RouterLink>
+          </li>
+          <li class="nav-item">
+            <RouterLink to="/contact" @click="closeMenu" class="nav-link">Contact</RouterLink>
+          </li>
+          <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+            <RouterLink to="/contact" class="btn-join" @click="closeMenu">Join Us</RouterLink>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
@@ -48,6 +50,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { CLUB_NAME, CLUB_TAGLINE } from '../config/club.js'
+import { LOGO_SMALL } from '../config/club.js'
 
 const menuOpen = ref(false)
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
@@ -62,7 +65,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 </script>
 
 <style scoped>
-.navbar {
+.site-navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -70,13 +73,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.site-navbar .container {
   height: 70px;
 }
 
@@ -86,6 +83,7 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
   gap: 0.75rem;
   text-decoration: none;
   flex-shrink: 0;
+  margin-right: 1rem;
 }
 
 .brand-icon {
@@ -107,16 +105,10 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 
 .brand-subtitle {
   font-size: 0.7rem;
-  color: var(--color-gold);
+  color: var(--color-red);
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
 }
 
 .nav-link {
@@ -136,13 +128,14 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
 }
 
 .nav-link.router-link-active {
-  color: var(--color-gold);
-  background-color: rgba(214, 158, 46, 0.1);
+  color: var(--color-red);
+  background-color: rgba(232, 102, 26, 0.12);
 }
 
 .btn-join {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: var(--color-red);
   color: var(--color-white);
   padding: 0.5rem 1.25rem;
@@ -151,36 +144,36 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
   font-size: 0.9rem;
   text-decoration: none;
   transition: all 0.2s ease;
-  margin-left: 0.5rem;
   white-space: nowrap;
 }
 
 .btn-join:hover {
-  background-color: #9b2c2c;
+  background-color: #c45412;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(197, 48, 48, 0.4);
+  box-shadow: 0 4px 12px rgba(232, 102, 26, 0.4);
 }
 
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   width: 28px;
-  height: 20px;
+  height: 28px;
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
+  box-shadow: none;
 }
 
 .hamburger span {
   display: block;
-  width: 100%;
+  width: 24px;
   height: 2px;
   background-color: var(--color-white);
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
+  margin: 3px 0;
 }
 
 .hamburger.open span:nth-child(1) {
@@ -202,34 +195,29 @@ onUnmounted(() => window.removeEventListener('resize', handleResize))
   }
 
   .nav-links {
-    display: none;
     position: absolute;
     top: 70px;
     left: 0;
     right: 0;
     background-color: var(--color-navy);
-    flex-direction: column;
-    align-items: stretch;
     padding: 1rem 1.5rem 1.5rem;
-    gap: 0.25rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   }
 
-  .nav-links.nav-open {
-    display: flex;
+  .nav-links :deep(.navbar-nav) {
+    align-items: stretch;
   }
 
   .nav-link {
+    display: block;
     padding: 0.75rem 1rem;
     font-size: 1rem;
   }
 
   .btn-join {
-    margin-left: 0;
-    margin-top: 0.5rem;
     padding: 0.75rem 1rem;
-    justify-content: center;
     font-size: 1rem;
+    width: 100%;
   }
 }
 </style>

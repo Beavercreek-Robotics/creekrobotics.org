@@ -1,213 +1,9 @@
-<!-- Source: https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/views/HomeView.vue -->
 <template>
-  <div class="home">
-    <!-- Hero -->
-    <HeroSection
-      title="Building Tomorrow's Engineers Today"
-      :subtitle="`${CLUB_NAME} empowers students through hands-on STEM experience, competitive robotics, and real-world engineering challenges in the ${COMPETITION_PROGRAM}.`"
-      backgroundClass="hero-default"
-      ctaText="Learn About Our Team"
-      ctaLink="/students"
-      secondaryCtaText="Join the Team"
-      secondaryCtaLink="/contact"
-    />
-
-    <!-- About Section -->
-    <section class="section bg-white">
-      <div class="container">
-        <div class="about-grid">
-          <div class="about-content">
-            <p class="section-label">About Us</p>
-            <h2>Who We Are</h2>
-            <div class="divider divider-left"></div>
-            <p>
-              {{ CLUB_NAME }} is a 501(c)(3) educational organization based at Beavercreek High
-              School in Beavercreek, Ohio. We participate in the
-              <strong>{{ COMPETITION_PROGRAM }}</strong>, inspiring students to pursue careers in
-              science, technology, engineering, and mathematics.
-            </p>
-            <p style="margin-top: 1rem;">
-              Our team is built on principles of collaboration, sportsmanship, and innovation —
-              competing fiercely while treating others with dignity and respect. We believe that
-              real-world engineering experience, combined with strong mentorship, prepares students
-              not just for college, but for life.
-            </p>
-            <p style="margin-top: 1rem;" class="mission-statement">
-              <em>"Our mission is to foster an interest in STEM among students via hands-on participation
-              in the VEX Robotics Competition Program, enhancing teamwork, problem-solving, and
-              technical skills."</em>
-            </p>
-          </div>
-          <div class="about-image">
-            <img src="../assets/images/hero-robot.svg" alt="Beavercreek Robotics Team Robot" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="section bg-navy stats-section">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item" v-for="stat in stats" :key="stat.label">
-            <div class="stat-value">{{ stat.value }}</div>
-            <div class="stat-label">{{ stat.label }}</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Audience Cards Section -->
-    <section class="section bg-light">
-      <div class="container">
-        <h2 class="section-title">Who Are You?</h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Find out how you can get involved with Beavercreek Robotics</p>
-        <div class="audience-grid">
-          <div class="audience-card" v-for="card in audienceCards" :key="card.title">
-            <div class="audience-icon">{{ card.icon }}</div>
-            <h3>{{ card.title }}</h3>
-            <p>{{ card.description }}</p>
-            <RouterLink :to="card.link" class="btn btn-primary">{{ card.cta }}</RouterLink>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Season Highlights -->
-    <section class="section bg-white">
-      <div class="container">
-        <h2 class="section-title">{{ CURRENT_SEASON_YEAR }} Season — "{{ CURRENT_GAME_NAME }}"</h2>
-        <div class="divider"></div>
-        <p class="section-subtitle">Follow our journey through the {{ COMPETITION_PROGRAM }} season</p>
-        <div class="season-grid">
-          <div class="season-card">
-            <div class="season-card-header">
-              <span class="season-badge">Schedule</span>
-              <h3>
-                Competition Dates
-                <span v-if="eventsLoading" class="live-badge live-badge-loading" title="Loading live data…">⟳</span>
-                <span v-else-if="usingLiveData" class="live-badge live-badge-live" title="Live data from Robot Events">Live</span>
-              </h3>
-            </div>
-            <div v-if="eventsLoading" class="events-loading">
-              <span class="loading-spinner" aria-label="Loading competition schedule…"></span>
-              <span>Loading schedule…</span>
-            </div>
-            <ul v-else class="competition-list">
-              <li v-for="comp in schedule.slice(0, 5)" :key="`${comp.date}-${comp.name}-${comp.location}`">
-                <span class="comp-date">{{ comp.date }}</span>
-                <component
-                  :is="comp.url ? 'a' : 'span'"
-                  :href="comp.url || undefined"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="comp-name"
-                >{{ comp.name }}</component>
-                <span class="comp-status" :class="`status-${comp.status}`">{{ comp.status }}</span>
-              </li>
-            </ul>
-            <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" class="see-all-link">
-              {{ COMPETITION_CALENDAR_LABEL }} →
-            </a>
-          </div>
-          <div class="season-card">
-            <div class="season-card-header">
-              <span class="season-badge season-badge-gold">Achievements</span>
-              <h3>Recent Accomplishments</h3>
-            </div>
-            <ul class="achievement-list">
-              <li>🏆 Excellence in Engineering Award — 2023 Regional</li>
-              <li>🥇 Autonomous Performance Award — 2023 District</li>
-              <li>🤝 Gracious Professionalism Award — 2022 Regional</li>
-              <li>🎖️ Judges' Award — 2022 Championship</li>
-              <li>📚 Dean's List Nominee — 2024 Season</li>
-            </ul>
-          </div>
-          <div class="season-card">
-            <div class="season-card-header">
-              <span class="season-badge season-badge-red">{{ CURRENT_SEASON_YEAR }}</span>
-              <h3>Current Game</h3>
-            </div>
-            <div class="robot-info">
-              <img src="../assets/images/hero-robot.svg" alt="VEX Robot" class="robot-thumb" />
-              <p>
-                Our {{ CURRENT_SEASON_YEAR }} robot is designed for the
-                <strong>{{ CURRENT_GAME_NAME }}</strong> challenge.
-                <a :href="COMPETITION_CALENDAR_LINK" target="_blank" rel="noopener noreferrer" style="color: var(--color-navy); font-weight: 600;">
-                  View game details →
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section cta-section">
-      <div class="container">
-        <div class="cta-content">
-          <h2>Ready to Get Started?</h2>
-          <p>Whether you're a student wanting to join, a parent exploring options, an engineer ready to mentor, or a business looking to invest in the future — we'd love to hear from you.</p>
-          <div class="cta-actions">
-            <RouterLink to="/contact" class="btn btn-gold btn-lg">Contact Us Today</RouterLink>
-            <RouterLink to="/students" class="btn btn-outline-white btn-lg">Learn More</RouterLink>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <HomePageContent />
 </template>
 
 <script setup>
-import { RouterLink } from 'vue-router'
-import HeroSection from '../components/HeroSection.vue'
-import {
-  CLUB_NAME,
-  COMPETITION_PROGRAM,
-  CURRENT_SEASON_YEAR,
-  CURRENT_GAME_NAME,
-  TEAM_STATS,
-  COMPETITION_CALENDAR_LINK,
-  COMPETITION_CALENDAR_LABEL,
-} from '../config/club.js'
-import { useRobotEvents } from '../composables/useRobotEvents.js'
-
-const stats = TEAM_STATS
-
-const { schedule, loading: eventsLoading, usingLiveData } = useRobotEvents()
-
-const audienceCards = [
-  {
-    icon: '👨‍👩‍👧',
-    title: 'Parents',
-    description: `Learn how our program develops your student's skills, builds college-ready experience, and connects them to real STEM opportunities.`,
-    link: '/parents',
-    cta: 'Enroll Your Student',
-  },
-  {
-    icon: '🎓',
-    title: 'Students',
-    description: `Want to build robots, write code, design mechanisms, or manage a team? There's a place for you here regardless of experience level.`,
-    link: '/students',
-    cta: 'Join Our Team',
-  },
-  {
-    icon: '🔧',
-    title: 'Engineers',
-    description: `Share your technical expertise and help shape the next generation of engineers. Mentoring is one of the most rewarding experiences in your career.`,
-    link: '/engineers',
-    cta: 'Become a Mentor',
-  },
-  {
-    icon: '🏢',
-    title: 'Businesses',
-    description: `Invest in your community's future workforce. Sponsoring ${CLUB_NAME} provides visibility, tax benefits, and direct impact on local youth.`,
-    link: '/sponsors',
-    cta: 'Sponsor Our Team',
-  },
-]
+import HomePageContent from '../components/page-content/HomePageContent.vue'
 </script>
 
 <style scoped>
@@ -243,10 +39,10 @@ const audienceCards = [
 }
 
 .mission-statement {
-  color: var(--color-navy) !important;
+  color: var(--color-dark) !important;
   font-size: 1rem;
-  background: rgba(26, 54, 93, 0.05);
-  border-left: 4px solid var(--color-gold);
+  background: rgba(232, 102, 26, 0.06);
+  border-left: 4px solid var(--color-red);
   padding: 1rem 1.25rem;
   border-radius: 0 8px 8px 0;
 }
@@ -259,7 +55,7 @@ const audienceCards = [
 .about-image img {
   max-width: 360px;
   width: 100%;
-  filter: drop-shadow(0 8px 24px rgba(26, 54, 93, 0.15));
+  filter: drop-shadow(0 8px 24px rgba(232, 102, 26, 0.15));
 }
 
 /* Stats */
@@ -382,8 +178,8 @@ const audienceCards = [
   white-space: nowrap;
 }
 
-.season-badge-gold { background: var(--color-gold); color: var(--color-navy); }
-.season-badge-red { background: var(--color-red); }
+.season-badge-gold { background: var(--color-red); color: var(--color-white); }
+.season-badge-red { background: var(--color-gray-dark); }
 
 .competition-list {
   display: flex;
@@ -477,7 +273,7 @@ const audienceCards = [
   display: inline-block;
   margin-top: 0.75rem;
   font-size: 0.85rem;
-  color: var(--color-navy-light);
+  color: var(--color-red);
   font-weight: 600;
   text-decoration: none;
 }

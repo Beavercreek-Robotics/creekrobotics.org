@@ -1,0 +1,843 @@
+[
+  {
+    "date": "10/28/23",
+    "name": "North Union VRC High School Qualifier; Richwood, Ohio",
+    "location": "North Union High School, Richwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434F",
+      "45434G",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2114.html"
+  },
+  {
+    "date": "11/16–17/23",
+    "name": "Speedway: Over Under VRC Signature Event (HS/MS); Speedway, IN",
+    "location": "Dallara IndyCar Factory, Speedway, Indiana, United States",
+    "status": "completed",
+    "teams": [
+      "45434D"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1483.html"
+  },
+  {
+    "date": "11/18/23",
+    "name": "Ken Ganley Ford High School Robotics VRC HS Tournament 1; Broadview Heights, OH",
+    "location": "Brecksville-Broadview Heights High School, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434G",
+      "45434H",
+      "45434N"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1711.html"
+  },
+  {
+    "date": "12/2/23",
+    "name": "Highland County VRC Blended Classic; Leesburg, OH",
+    "location": "Fairfield High School, Leesburg, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434M"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-3207.html"
+  },
+  {
+    "date": "12/9/23",
+    "name": "Terra State VRC Over/Under: Presented by Motion Controls Robotics - High School Only; Fremont, OH",
+    "location": "Terra State Community College, Fremont, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434F",
+      "45434N"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2745.html"
+  },
+  {
+    "date": "12/15–16/23",
+    "name": "The RiverBots II VRC Over Under Signature Event (MS/HS): Blended VRC MS/HS",
+    "location": "River Raisin National Battlefield Park, Monroe, Michigan, United States",
+    "status": "completed",
+    "teams": [
+      "45434A"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1485.html"
+  },
+  {
+    "date": "12/16/23",
+    "name": "Loveland VRC Blended Event Qualifier",
+    "location": "Loveland Intermediate School, Loveland, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434E",
+      "45434G",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-3061.html"
+  },
+  {
+    "date": "1/12/24",
+    "name": "B-Town Bots VRC High School Qualifier, Bellefontaine, Ohio",
+    "location": "Bellefontaine Middle School, Bellefontaine, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434G",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2585.html"
+  },
+  {
+    "date": "1/13/24",
+    "name": "Mt. Vernon High School VRC Qualifier @ Energy Fieldhouse!; Mount Vernon, OH: OVER UNDER",
+    "location": "Energy Fieldhouse, Mount Vernon, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434E",
+      "45434F",
+      "45434H",
+      "45434M"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2613.html"
+  },
+  {
+    "date": "1/19–20/24",
+    "name": "Kalahari Classic VRC Signature Event (HS Only); Sandusky, OH",
+    "location": "Kalahari Resorts & Conventions - Sandusky, Sandusky, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434G",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1490.html"
+  },
+  {
+    "date": "1/27/24",
+    "name": "Washington HS/MS VRC Qualifying Tournament ; Washington Court House, Ohio",
+    "location": "Washington High School, Washington Court House, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434F",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1731.html"
+  },
+  {
+    "date": "2/3/24",
+    "name": "Highland VRC High School Qualifier; Marengo, Ohio",
+    "location": "Highland Junior High School, Marengo, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434E",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-3619.html"
+  },
+  {
+    "date": "2/3/24",
+    "name": "Mahoning Valley VRC Blended Qualifier, Canfield, Ohio",
+    "location": "7300 N Palmyra Rd, Canfield, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434N"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2654.html"
+  },
+  {
+    "date": "2/10/24",
+    "name": "Ken Ganley Ford High School Robotics VRC HS Tournament 2; Broadview Heights, OH",
+    "location": "Brecksville-Broadview Heights High School, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434N"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1733.html"
+  },
+  {
+    "date": "2/17/24",
+    "name": "Milford VRC High School Qualifier",
+    "location": "1 Eagles Way, Milford, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434E",
+      "45434F",
+      "45434G",
+      "45434M",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-1557.html"
+  },
+  {
+    "date": "2/19/24",
+    "name": "Late Season *SCRIMMAGE* at North Union High School; Richwood, Ohio",
+    "location": "North Union High School, Richwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434G",
+      "45434H",
+      "45434M",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-24-5373.html"
+  },
+  {
+    "date": "2/24/24",
+    "name": "Southwest Oaks VRC Blended Qualifying Tournament; Harrison, OH",
+    "location": "Harrison Activity Center, Harrison, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434H",
+      "45434N",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-3053.html"
+  },
+  {
+    "date": "3/9/24",
+    "name": "2024 Ohio VRC High School State Championship, Marion, OH",
+    "location": "Marion County Fairgrounds & Veterans Memorial Coliseum, Marion, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434E",
+      "45434F",
+      "45434G",
+      "45434H",
+      "45434M",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-2555.html"
+  },
+  {
+    "date": "4/25–27/24",
+    "name": "2024 VEX Robotics World Championship - VEX Robotics Competition High School Event",
+    "location": "Kay Bailey Hutchison Convention Center Dallas, Dallas, Texas, United States",
+    "status": "completed",
+    "teams": [
+      "45434G",
+      "45434H",
+      "45434M"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-VRC-23-3690.html"
+  },
+  {
+    "date": "10/17/24–2/27/25",
+    "name": "Beavercreek Robotics League: VEX V5 Robotics Competition High Stakes",
+    "location": "Beavercreek High School, Dayton, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7567.html"
+  },
+  {
+    "date": "10/26/24",
+    "name": "North Union High School Qualifier: VEX V5 Robotics Competition High Stakes",
+    "location": "North Union High School, Richwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434V",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-6093.html"
+  },
+  {
+    "date": "11/2/24",
+    "name": "Dan Spak Memorial: VEX V5 Robotics Competition High Stakes",
+    "location": "Firestone CLC HS, Akron, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434N",
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-6990.html"
+  },
+  {
+    "date": "11/9/24",
+    "name": "The Kennedy Group High School Robotics Tournament: VEX V5 Robotics Competition High Stakes",
+    "location": "Brecksville-Broadview Heights High School, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434H",
+      "45434R",
+      "45434S",
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-5518.html"
+  },
+  {
+    "date": "11/16/24",
+    "name": "West Holmes Blended Tournament: VEX V5 Robotics Competition High Stakes",
+    "location": "West Holmes High School, Millersburg, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434V"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-5595.html"
+  },
+  {
+    "date": "12/7/24",
+    "name": "Highland County Classic: VEX V5 Robotics Competition High Stakes",
+    "location": "Fairfield Local High School, Leesburg, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434M",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434X"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7104.html"
+  },
+  {
+    "date": "12/14/24",
+    "name": "Loveland Blended Event Qualifier: VEX V5 Robotics Competition High Stakes",
+    "location": "Loveland Intermediate School, Loveland, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434H",
+      "45434S",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7241.html"
+  },
+  {
+    "date": "12/14–15/24",
+    "name": "Battle for the Brass Boot: Elite VEX V5 Robotics Competition High Stakes Invitational (High School Only)",
+    "location": "Grandville Robotics Competition Center, Grandville, Michigan, United States",
+    "status": "completed",
+    "teams": [
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-6661.html"
+  },
+  {
+    "date": "1/4/25",
+    "name": "Mt. Vernon High School Qualifier @ Energy Fieldhouse!: VEX V5 Robotics Competition High Stakes",
+    "location": "Energy Fieldhouse, Mount Vernon, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434N",
+      "45434V",
+      "45434W",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7614.html"
+  },
+  {
+    "date": "1/11/25",
+    "name": "Picktown Throwdown 2.0 High School Tournament: VEX V5 Robotics Competition High Stakes",
+    "location": "Pickerington High School Central, Pickerington, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7108.html"
+  },
+  {
+    "date": "1/18/25",
+    "name": "Harding Blended Tournament: VEX V5 Robotics Competition High Stakes",
+    "location": "Marion Harding High School, Marion, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434V"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7856.html"
+  },
+  {
+    "date": "1/24–25/25",
+    "name": "Kalahari Classic VEX V5 Robotics Competition Signature Event - HS: High School - WORLDS QUALIFYING DIVISION",
+    "location": "Kalahari Resorts & Conventions - Sandusky, Sandusky, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434W",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-5622.html"
+  },
+  {
+    "date": "2/8/25",
+    "name": "Savko- Highland V5RC High School Qualifier; Marengo, Ohio: VEX V5 Robotics Competition High Stakes",
+    "location": "Highland Junior High School, Marengo, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434M",
+      "45434V"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7833.html"
+  },
+  {
+    "date": "2/15/25",
+    "name": "Showdown at the Peak HS Tournament: VEX V5 Robotics Competition High Stakes",
+    "location": "Bellefontaine High School, Bellefontaine, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434N"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-8136.html"
+  },
+  {
+    "date": "2/15/25",
+    "name": "The Kennedy Group High School Robotics Tournament #2: VEX V5 Robotics Competition High Stakes",
+    "location": "Brecksville-Broadview Heights High School, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434M",
+      "45434V"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-6025.html"
+  },
+  {
+    "date": "2/16/25",
+    "name": "Milford High School Qualifier; Milford, OH: VEX V5 Robotics Competition High Stakes",
+    "location": "Milford High School, Milford, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434H",
+      "45434N",
+      "45434S",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-7174.html"
+  },
+  {
+    "date": "2/22/25",
+    "name": "Southwest Oaks Blended Qualifier: VEX V5 Robotics Competition High Stakes",
+    "location": "Harrison High School Activity Center, Harrison, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434H",
+      "45434S"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-7766.html"
+  },
+  {
+    "date": "3/1/25",
+    "name": "Late Season *SCRIMMAGE* at North Union High School: VEX V5 Robotics Competition High Stakes",
+    "location": "North Union High School, Richwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434W",
+      "45434X"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-9801.html"
+  },
+  {
+    "date": "3/15–16/25",
+    "name": "2025 Ohio VEX V5 HS Robotics State Championship: VEX V5 Robotics Competition High Stakes High School Division",
+    "location": "National Museum of the US Air Force, Dayton, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-8829.html"
+  },
+  {
+    "date": "5/6–8/25",
+    "name": "2025 VEX Robotics World Championship: VEX V5 Robotics Competition High School Event",
+    "location": "Kay Bailey Hutchison Convention Center Dallas, Dallas, Texas, United States",
+    "status": "completed",
+    "teams": [
+      "45434H",
+      "45434M",
+      "45434S"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-24-8909.html"
+  },
+  {
+    "date": "10/21/25–2/10/26",
+    "name": "Beavercreek Robotics League: VEX V5 Robotics Competition 2025-2026: Push Back",
+    "location": "Beavercreek High School, Dayton, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434E",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0058.html"
+  },
+  {
+    "date": "10/25/25",
+    "name": "North Union High School Qualifier: VEX V5 Robotics Competition Push Back",
+    "location": "North Union High School, Richwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434E",
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0167.html"
+  },
+  {
+    "date": "11/8/25",
+    "name": "Dan Spak Memorial: VEX V5 Robotics Competition Push Back",
+    "location": "Firestone CLC HS, Akron, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1956.html"
+  },
+  {
+    "date": "11/14–15/25",
+    "name": "LAUNCH at EATON V5 Robotics Competition Signature Event: High School Signature Event",
+    "location": "1000 Eaton Blvd, Beachwood, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434M"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-9915.html"
+  },
+  {
+    "date": "11/14–15/25",
+    "name": "Smoky Mountain Forge *Signature Event*: High School",
+    "location": "Sevierville Convention Center, Sevierville, Tennessee, United States",
+    "status": "completed",
+    "teams": [
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0153.html"
+  },
+  {
+    "date": "11/15/25",
+    "name": "King of the Hill - HS Competition: V5RC Push Back",
+    "location": "Bellefontaine Middle School, Bellefontaine, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434N",
+      "45434S",
+      "45434V",
+      "45434X"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-9958.html"
+  },
+  {
+    "date": "11/21–22/25",
+    "name": "Speedway Push Back High School Signature Event: Presented by the Chrysalis Global Foundation",
+    "location": "Indianapolis Motor Speedway, Indianapolis, Indiana, United States",
+    "status": "completed",
+    "teams": [
+      "45434R",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0094.html"
+  },
+  {
+    "date": "12/6/25",
+    "name": "Triway Robotics High School December Classic Tournament: VEX V5 Robotics Competition Push Back",
+    "location": "Triway High School, Wooster, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434N",
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1296.html"
+  },
+  {
+    "date": "12/6/25",
+    "name": "Meaden & Moore HS VEX V5 Robotics Competition 2025-2026: Meaden & Moore",
+    "location": "Brecksville-Broadview Heights High School, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434S"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0422.html"
+  },
+  {
+    "date": "12/13/25",
+    "name": "Loveland VEX V5 Robotics Tournament: VEX V5 Blended HS/MS Qualifier Push Back",
+    "location": "Loveland Intermediate School, Loveland, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434H",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0844.html"
+  },
+  {
+    "date": "12/20/25",
+    "name": "Roller Coast RoboClash: VEX V5 Robotics Competition Push Back",
+    "location": "Cedar Point Sports Center, Sandusky, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434H",
+      "45434M"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-2020.html"
+  },
+  {
+    "date": "12/28/25",
+    "name": "Columbus Blue Jackets V5RC Blended Game Day Event 2025 - 2026: VEX V5 Robotics Competition Push Back",
+    "location": "Nationwide Arena, Columbus, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434S",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-2091.html"
+  },
+  {
+    "date": "1/3/26",
+    "name": "Mt. Vernon High School Qualifier @ Energy Fieldhouse!: VEX V5 Robotics Competition Push Back",
+    "location": "Energy Fieldhouse, Mount Vernon, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434N",
+      "45434R",
+      "45434S",
+      "45434V",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1158.html"
+  },
+  {
+    "date": "1/10/26",
+    "name": "Picktown Throwdown High School Qualifier: VEX V5 Robotics Competition Push Back",
+    "location": "Pickerington Ridgeview Junior High School, Pickerington, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434E",
+      "45434H",
+      "45434M",
+      "45434V",
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1442.html"
+  },
+  {
+    "date": "1/23–24/26",
+    "name": "Kalahari Classic V5RC HIGH SCHOOL Signature Event: High School - WORLDS QUALIFYING DIVISION",
+    "location": "Kalahari Resorts & Conventions - Sandusky, Sandusky, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0166.html"
+  },
+  {
+    "date": "2/7/26",
+    "name": "Washington HS/MS VEX V5 Robotics Competition Push Back: Washington Court House - Ohio",
+    "location": "Washington Court House, Washington Court House, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434M",
+      "45434R",
+      "45434W",
+      "45434X"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1630.html"
+  },
+  {
+    "date": "2/12–13/26",
+    "name": "Bots @ Bristol VEX V5 Robotics Competition Signature Event: High School",
+    "location": "Bristol Motor Speedway, Bristol, Tennessee, United States",
+    "status": "completed",
+    "teams": [
+      "45434H"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0192.html"
+  },
+  {
+    "date": "2/14/26",
+    "name": "Meaden & Moore  HS VEX V5 Robotics Competition #2 2025-2026: VEX V5 Robotics Competition Push Back",
+    "location": "Brecksville-Broadview Heights High School Auditorium, Broadview Heights, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434M",
+      "45434W"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0424.html"
+  },
+  {
+    "date": "2/14/26",
+    "name": "Milford V5RC High School Qualifier; Milford, OH: VEX V5 Robotics Competition Push Back",
+    "location": "Milford Middle School, Milford, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434D",
+      "45434E",
+      "45434S",
+      "45434V",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0252.html"
+  },
+  {
+    "date": "2/21/26",
+    "name": "Showdown at the Peak - HS Competition: VEX V5 Robotics Competition Push Back",
+    "location": "Bellefontaine High School, Bellefontaine, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434D",
+      "45434M",
+      "45434N",
+      "45434S"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0457.html"
+  },
+  {
+    "date": "2/21/26",
+    "name": "Southwest Oaks Blended Qualifier: VEX V5 Robotics Competition Push Back",
+    "location": "Harrison High School Activity Center, Harrison, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434E",
+      "45434H",
+      "45434R",
+      "45434V",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-0008.html"
+  },
+  {
+    "date": "3/6–7/26",
+    "name": "2026 Ohio V5RC HS Robotics State Championship: V5RC  High School Division",
+    "location": "National Museum of the US Air Force, Dayton, Ohio, United States",
+    "status": "completed",
+    "teams": [
+      "45434A",
+      "45434H",
+      "45434M",
+      "45434R",
+      "45434V",
+      "45434W",
+      "45434X",
+      "45434Y"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-25-1933.html"
+  },
+  {
+    "date": "4/21–24/26",
+    "name": "2026 VEX Robotics World Championship: VEX V5 Robotics Competition High School Event",
+    "location": "America's Center Convention Complex, St. Louis, Missouri, United States",
+    "status": "upcoming",
+    "teams": [
+      "45434H",
+      "45434M",
+      "45434R"
+    ],
+    "eventUrl": "https://www.robotevents.com/robot-competitions/vex-robotics-competition/RE-V5RC-26-4025.html"
+  }
+]
