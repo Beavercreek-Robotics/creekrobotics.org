@@ -56,7 +56,7 @@ export const SOCIAL_LINKTREE = "https://linktr.ee/beavercreekroboticsclub";
  * Team number prefixes used by this club on RobotEvents.
  * Add new prefixes as additional club teams are created.
  */
-export const TEAM_NUMBER_PREFIXES = ["45434"];
+export const TEAM_NUMBER_PREFIXES = ["45434", "45432"];
 
 // ── Season ──────────────────────────────────────────────────
 /** Current competition year label, e.g. "2025–26" */
