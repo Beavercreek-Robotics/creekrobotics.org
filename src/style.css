@@ -2,20 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --color-navy: #1a365d;
-  --color-navy-dark: #102040;
-  --color-navy-light: #2d5a9e;
-  --color-red: #c53030;
-  --color-red-light: #fc8181;
-  --color-gold: #d69e2e;
-  --color-gold-light: #f6e05e;
+  /* === Beavercreek Robotics Brand Colors === */
+  /* Drawn from the official logo: dark circle bg, orange tiger, gray robot */
+  --color-navy: #1a1a1a;        /* logo: dark/black circle background */
+  --color-navy-dark: #0d0d0d;   /* deeper black */
+  --color-navy-light: #2e2e2e;  /* slightly lighter dark */
+  --color-red: #e8661a;         /* logo: tiger orange — primary accent */
+  --color-red-light: #f59a5c;   /* lighter orange */
+  --color-gold: var(--color-red);        /* alias → same orange accent */
+  --color-gold-light: var(--color-red-light);
   --color-white: #ffffff;
-  --color-light: #f7fafc;
-  --color-light-2: #edf2f7;
-  --color-dark: #1a202c;
-  --color-gray: #718096;
-  --color-gray-light: #a0aec0;
-  --color-gray-dark: #4a5568;
+  --color-light: #f5f5f5;
+  --color-light-2: #ebebeb;
+  --color-dark: #1a1a1a;
+  --color-gray: #7d7d7d;        /* logo: robot/gear gray */
+  --color-gray-light: #a8a8a8;
+  --color-gray-dark: #525252;
 
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --border-radius: 8px;
@@ -224,8 +226,8 @@ p {
 }
 
 .btn-secondary:hover {
-  background-color: #9b2c2c;
-  border-color: #9b2c2c;
+  background-color: #c45412;
+  border-color: #c45412;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -255,14 +257,14 @@ p {
 }
 
 .btn-gold {
-  background-color: var(--color-gold);
-  color: var(--color-navy);
-  border-color: var(--color-gold);
+  background-color: var(--color-red);
+  color: var(--color-white);
+  border-color: var(--color-red);
 }
 
 .btn-gold:hover {
-  background-color: #b7851f;
-  border-color: #b7851f;
+  background-color: #c45412;
+  border-color: #c45412;
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
@@ -318,8 +320,8 @@ p {
 
 .form-control:focus {
   outline: none;
-  border-color: var(--color-navy-light);
-  box-shadow: 0 0 0 3px rgba(45, 90, 158, 0.15);
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 3px rgba(232, 102, 26, 0.15);
 }
 
 /* ==================== BACKGROUND UTILITIES ==================== */

@@ -73,7 +73,7 @@ defineProps({
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(26, 54, 93, 0.92) 0%, rgba(197, 48, 48, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.92) 0%, rgba(232, 102, 26, 0.55) 100%);
   z-index: 1;
 }
 
@@ -82,23 +82,23 @@ defineProps({
 }
 
 .hero-parents {
-  background: linear-gradient(135deg, #1a365d 0%, #2d5a9e 60%, #276749 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 60%, #2d6a4f 100%);
 }
 
 .hero-students {
-  background: linear-gradient(135deg, #1a202c 0%, #1a365d 50%, #c53030 100%);
+  background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 50%, var(--color-red) 100%);
 }
 
 .hero-engineers {
-  background: linear-gradient(135deg, #1a365d 0%, #2d3748 60%, #d69e2e 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 60%, var(--color-red) 100%);
 }
 
 .hero-sponsors {
-  background: linear-gradient(135deg, #1a365d 0%, #553c9a 60%, #d69e2e 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-gray-dark) 60%, var(--color-red) 100%);
 }
 
 .hero-contact {
-  background: linear-gradient(135deg, #1a365d 0%, #2d5a9e 100%);
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
 }
 
 /* Decorative pattern overlay */
@@ -111,8 +111,8 @@ defineProps({
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(214, 158, 46, 0.1) 0%, transparent 40%);
+  background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(232,102,26,0.15) 0%, transparent 40%);
   z-index: 0;
 }
 

@@ -23,6 +23,7 @@ import generatedTeamStats from "../generated/team-stats.js";
 export const CLUB_NAME = "Beavercreek Robotics Club";
 
 /** Short tag shown next to the logo (e.g. "VEX Robotics") */
+export const LOGO_SMALL = "/logo-small.jpg";
 export const CLUB_TAGLINE = "VEX Robotics Competition";
 
 /** The competition program this club participates in */
