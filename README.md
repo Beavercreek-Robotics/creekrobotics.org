@@ -1,6 +1,6 @@
 # creekrobotics.org
 
-The official website for **Beavercreek Robotics — FRC Team 5**, built with [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/).
+The official website for **Beavercreek Robotics Club**, built with [Vue 3](https://vuejs.org/) + [Vite](https://vitejs.dev/).
 
 ## Quick Start
 

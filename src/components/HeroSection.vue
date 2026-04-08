@@ -2,16 +2,21 @@
 <template>
   <section class="hero-section" :class="backgroundClass">
     <div class="hero-overlay"></div>
-    <div class="hero-content container">
-      <h1 class="hero-title">{{ title }}</h1>
-      <p v-if="subtitle" class="hero-subtitle">{{ subtitle }}</p>
-      <div v-if="showCta && (ctaText || secondaryCtaText)" class="hero-actions">
-        <RouterLink v-if="ctaText && ctaLink" :to="ctaLink" class="btn btn-gold btn-lg">
-          {{ ctaText }}
-        </RouterLink>
-        <RouterLink v-if="secondaryCtaText && secondaryCtaLink" :to="secondaryCtaLink" class="btn btn-outline-white btn-lg">
-          {{ secondaryCtaText }}
-        </RouterLink>
+    <div class="container hero-content">
+      <div class="row justify-content-center text-center">
+        <div class="col-lg-10 col-xl-9">
+          <h1 class="hero-title">{{ title }}</h1>
+          <p v-if="subtitle" class="hero-subtitle">{{ subtitle }}</p>
+          <div v-if="showCta && (ctaText || secondaryCtaText)" class="hero-actions">
+            <RouterLink v-if="ctaText && ctaLink" :to="ctaLink" class="btn btn-gold btn-lg">
+              {{ ctaText }}
+            </RouterLink>
+            <RouterLink v-if="secondaryCtaText && secondaryCtaLink" :to="secondaryCtaLink"
+              class="btn btn-outline-white btn-lg">
+              {{ secondaryCtaText }}
+            </RouterLink>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -106,15 +111,14 @@ defineProps({
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, rgba(214,158,46,0.1) 0%, transparent 40%);
+  background-image: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(214, 158, 46, 0.1) 0%, transparent 40%);
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  text-align: center;
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
@@ -125,7 +129,7 @@ defineProps({
   color: var(--color-white);
   line-height: 1.15;
   margin-bottom: 1.25rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-subtitle {

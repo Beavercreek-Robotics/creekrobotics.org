@@ -65,6 +65,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate competition schedule JSON
+        run: npm run generate:events
+
       - name: Build site (branch base path)
         run: npm run build
         env:

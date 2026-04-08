@@ -12,7 +12,7 @@
   </defs>
   <rect width="400" height="500" fill="url(#bgGrad)" rx="20"/>
   <!-- Team label -->
-  <text x="200" y="40" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a365d" opacity="0.6">FRC TEAM 5 · BEAVERCREEK ROBOTICS</text>
+  <text x="200" y="40" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a365d" opacity="0.6">VRC 45434* · BEAVERCREEK ROBOTICS</text>
   <!-- Robot body -->
   <rect x="120" y="200" width="160" height="140" rx="15" fill="url(#bodyGrad)"/>
   <!-- Chest panel -->
@@ -64,7 +64,7 @@
   <rect x="120" y="305" width="160" height="4" rx="2" fill="#d69e2e" opacity="0.6"/>
   <!-- Team number badge -->
   <circle cx="315" cy="375" r="30" fill="#d69e2e"/>
-  <text x="315" y="383" text-anchor="middle" font-family="sans-serif" font-size="22" font-weight="bold" fill="#1a365d">5</text>
+  <text x="315" y="383" text-anchor="middle" font-family="sans-serif" font-size="18" font-weight="bold" fill="#1a365d">34+</text>
   <!-- Ground shadow -->
   <ellipse cx="200" cy="450" rx="100" ry="12" fill="#1a365d" opacity="0.1"/>
 </svg>
