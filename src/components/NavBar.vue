@@ -1,7 +1,7 @@
 <!-- Source: https://github.com/Beavercreek-Robotics/creekrobotics.org/blob/main/src/components/NavBar.vue -->
 <template>
-  <nav class="navbar">
-    <div class="nav-inner">
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container">
       <RouterLink to="/" class="brand-link" @click="closeMenu">
         <img :src="LOGO_SMALL" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
         <div class="brand-text">
@@ -57,7 +57,7 @@ const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 const closeMenu = () => { menuOpen.value = false }
 
 const handleResize = () => {
-  if (window.innerWidth > 900) closeMenu()
+  if (window.innerWidth >= 992) closeMenu()
 }
 
 onMounted(() => window.addEventListener('resize', handleResize))

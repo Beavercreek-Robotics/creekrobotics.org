@@ -24,7 +24,8 @@
           </p>
         </div>
         <div class="col-lg-6 d-none d-lg-flex justify-content-center about-image">
-          <img src="../../../assets/images/hero-robot.svg" alt="Beavercreek Robotics Team Robot" />
+          <img src="../../../assets/images/teams/2025 Club Photo.avif"
+            alt="Beavercreek Robotics Club 2025 Club Photo" />
         </div>
       </div>
     </div>

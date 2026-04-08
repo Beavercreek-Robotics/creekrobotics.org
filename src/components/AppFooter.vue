@@ -7,7 +7,7 @@
           <!-- Brand column -->
           <div class="col-lg-5 col-md-6 footer-brand">
             <div class="brand-logo">
-              <img :src="LOGO_SMALL" alt="Beavercreek Robotics Club logo" width="52" height="52" />
+              <img :src="LOGO_SMALL" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
               <div>
                 <p class="brand-name">{{ CLUB_NAME }}</p>
                 <p class="brand-subtitle">{{ CLUB_TAGLINE }} | Beavercreek High School</p>
@@ -130,6 +130,7 @@ import { RouterLink } from 'vue-router'
 import {
   CLUB_NAME,
   CLUB_TAGLINE,
+  LOGO_SMALL,
   FOOTER_DESCRIPTION,
   CONTACT_EMAIL,
   ADDRESS_LINE1,
