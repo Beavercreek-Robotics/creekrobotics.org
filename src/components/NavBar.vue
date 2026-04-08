@@ -3,7 +3,7 @@
   <nav class="navbar">
     <div class="nav-inner">
       <RouterLink to="/" class="brand-link" @click="closeMenu">
-        <img src="/logo.svg" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
+        <img :src="LOGO_SMALL" alt="Beavercreek Robotics Club logo" class="brand-icon" width="48" height="48" />
         <div class="brand-text">
           <span class="brand-name">{{ CLUB_NAME }}</span>
           <span class="brand-subtitle">{{ CLUB_TAGLINE }}</span>
@@ -50,6 +50,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { CLUB_NAME, CLUB_TAGLINE } from '../config/club.js'
+import { LOGO_SMALL } from '../config/club.js'
 
 const menuOpen = ref(false)
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
