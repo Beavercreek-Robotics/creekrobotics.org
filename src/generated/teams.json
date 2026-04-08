@@ -1,0 +1,198 @@
+[
+  {
+    "id": 155320,
+    "number": "45434A",
+    "teamName": "Atomic",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155316,
+    "number": "45434D",
+    "teamName": "The Cucumbers",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155323,
+    "number": "45434E",
+    "teamName": "Nebula",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155317,
+    "number": "45434F",
+    "teamName": "ZERO GRAVITY",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": false,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155324,
+    "number": "45434G",
+    "teamName": "Ghost",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": false,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155326,
+    "number": "45434H",
+    "teamName": "Aftershock",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155322,
+    "number": "45434M",
+    "teamName": "Meltdown",
+    "robotName": "Bomber",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155321,
+    "number": "45434N",
+    "teamName": "Nemesis",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 155325,
+    "number": "45434R",
+    "teamName": "Rift",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 171942,
+    "number": "45434S",
+    "teamName": "Awesome Sauce",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 171934,
+    "number": "45434V",
+    "teamName": "Vortex",
+    "robotName": "Patrick",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 171933,
+    "number": "45434W",
+    "teamName": "Hogwild",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 171922,
+    "number": "45434X",
+    "teamName": "Paradox",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 171941,
+    "number": "45434Y",
+    "teamName": "ODYSSEY",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "High School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  }
+]

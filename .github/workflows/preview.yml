@@ -65,9 +65,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate competition schedule JSON
+        run: npm run generate:events
+        env:
+          ROBOTEVENTS_API_TOKEN: ${{ secrets.ROBOTEVENTS_API_TOKEN }}
+
       - name: Build site (branch base path)
         run: npm run build
         env:
+          ROBOTEVENTS_API_TOKEN: ${{ secrets.ROBOTEVENTS_API_TOKEN }}
           VITE_BASE_PATH: /${{ steps.branch.outputs.safe }}/
 
       - name: Deploy preview to subdirectory
