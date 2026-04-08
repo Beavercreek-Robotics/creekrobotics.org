@@ -17,6 +17,7 @@ const allowedStatuses = new Set(["upcoming", "completed", "tbd"]);
 const apiBaseUrl = "https://www.robotevents.com/api/v2";
 const suffixAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 const defaultSuffixDepth = 1;
+const envFileDisallowedKeys = new Set(["ROBOTEVENTS_API_TOKEN"]);
 
 function parsePrefixList(raw) {
   if (!raw) {
@@ -51,7 +52,11 @@ async function loadDotEnvLocal() {
     const key = trimmed.slice(0, equalsIndex).trim();
     const value = trimmed.slice(equalsIndex + 1).trim();
 
-    if (!key || process.env[key] !== undefined) {
+    if (
+      !key ||
+      envFileDisallowedKeys.has(key) ||
+      process.env[key] !== undefined
+    ) {
       continue;
     }
 
@@ -378,7 +383,7 @@ async function main() {
   const token = process.env.ROBOTEVENTS_API_TOKEN;
   if (!token) {
     throw new Error(
-      "Missing ROBOTEVENTS_API_TOKEN. Set it in environment or .env.local.",
+      "Missing ROBOTEVENTS_API_TOKEN. Set it in the runtime environment.",
     );
   }
 

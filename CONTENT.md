@@ -166,6 +166,8 @@ Required environment variable:
 ROBOTEVENTS_API_TOKEN=...
 ```
 
+`ROBOTEVENTS_API_TOKEN` must come from the runtime environment, such as your shell session or a GitHub Actions secret. The generator does not read that token from `.env.local`.
+
 Optional environment variable:
 
 ```bash
@@ -177,7 +179,7 @@ ROBOTEVENTS_TEAM_SUFFIX_DEPTH=1   # 0=prefix only, 1=prefix+1 char, 2=prefix+2 c
 Team prefixes should be maintained in `src/config/club.js` via `TEAM_NUMBER_PREFIXES`.
 Use `ROBOTEVENTS_TEAM_PREFIXES` only when you need a temporary runtime override.
 
-The generator script reads `.env.local` during local runs and uses runtime environment variables in GitHub Actions.
+The generator script reads `.env.local` only for optional non-secret local overrides and uses runtime environment variables in GitHub Actions.
 
 #### Sponsorship tiers
 
