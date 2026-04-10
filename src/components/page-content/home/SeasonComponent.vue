@@ -45,6 +45,7 @@
                   :key="`${item.key}-${partIndex}`">
                   <span :class="{ 'achievement-team-number': isTeamNumberToken(part) }">{{ part }}</span>
                 </template>
+                <span class="achievement-date">{{ getAccomplishmentDateLabel(item) }}</span>
               </li>
               <li v-if="accomplishments.length === 0">No recent accomplishments available yet.</li>
             </ul>
@@ -83,18 +84,60 @@ import {
 
 const competitionsPerPage = 5
 const accomplishmentsPerPage = 5
-const firstUpcomingCompetitionIndex = competitionSchedule.findIndex(
-  (comp) => comp.status === 'upcoming' || comp.status === 'tbd'
-)
-const initialCompetitionPage =
-  firstUpcomingCompetitionIndex === -1 ? 0 : Math.floor(firstUpcomingCompetitionIndex / competitionsPerPage)
-const currentCompetitionPage = ref(initialCompetitionPage)
+const currentCompetitionPage = ref(0)
 const currentAccomplishmentPage = ref(0)
 
-const totalCompetitionPages = computed(() => Math.max(1, Math.ceil(competitionSchedule.length / competitionsPerPage)))
+const parseCompetitionDate = (dateValue) => {
+  const value = String(dateValue ?? '').trim()
+  const sameMonthRangeMatch = value.match(/^(\d{1,2})\/(\d{1,2})[–-](\d{1,2})\/(\d{2,4})$/)
+
+  if (sameMonthRangeMatch) {
+    const [, month, day, , year] = sameMonthRangeMatch
+    const normalizedYear = Number(year.length === 2 ? `20${year}` : year)
+    return new Date(Date.UTC(normalizedYear, Number(month) - 1, Number(day))).getTime()
+  }
+
+  const leadingDateMatch = value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/)
+  if (leadingDateMatch) {
+    const [, month, day, year] = leadingDateMatch
+    const normalizedYear = Number(year.length === 2 ? `20${year}` : year)
+    return new Date(Date.UTC(normalizedYear, Number(month) - 1, Number(day))).getTime()
+  }
+
+  return 0
+}
+
+const sortedCompetitions = computed(() =>
+  [...competitionSchedule].sort((a, b) => parseCompetitionDate(b.date) - parseCompetitionDate(a.date))
+)
+
+const getAccomplishmentSortValue = (item) => {
+  const sortDateValue = Number(item?.sortDate)
+  if (Number.isFinite(sortDateValue) && sortDateValue > 0) {
+    return sortDateValue
+  }
+
+  const parsedDate = Date.parse(String(item?.date ?? ''))
+  if (Number.isFinite(parsedDate) && parsedDate > 0) {
+    return parsedDate
+  }
+
+  const yearValue = Number(item?.year)
+  if (Number.isFinite(yearValue) && yearValue > 0) {
+    return Date.UTC(yearValue, 0, 1)
+  }
+
+  return 0
+}
+
+const sortedAccomplishments = computed(() =>
+  [...accomplishments].sort((a, b) => getAccomplishmentSortValue(b) - getAccomplishmentSortValue(a))
+)
+
+const totalCompetitionPages = computed(() => Math.max(1, Math.ceil(sortedCompetitions.value.length / competitionsPerPage)))
 
 const visibleCompetitions = computed(() =>
-  competitionSchedule.slice(
+  sortedCompetitions.value.slice(
     currentCompetitionPage.value * competitionsPerPage,
     (currentCompetitionPage.value + 1) * competitionsPerPage
   )
@@ -104,11 +147,11 @@ const hasPreviousPage = computed(() => currentCompetitionPage.value > 0)
 const hasNextPage = computed(() => currentCompetitionPage.value < totalCompetitionPages.value - 1)
 
 const totalAccomplishmentPages = computed(() =>
-  Math.max(1, Math.ceil(accomplishments.length / accomplishmentsPerPage))
+  Math.max(1, Math.ceil(sortedAccomplishments.value.length / accomplishmentsPerPage))
 )
 
 const visibleAccomplishments = computed(() =>
-  accomplishments.slice(
+  sortedAccomplishments.value.slice(
     currentAccomplishmentPage.value * accomplishmentsPerPage,
     (currentAccomplishmentPage.value + 1) * accomplishmentsPerPage
   )
@@ -126,6 +169,24 @@ const getAccomplishmentTextParts = (text) =>
     .filter((part) => part.length > 0)
 
 const isTeamNumberToken = (part) => /^\(\d+[A-Z0-9]*\)$/.test(part)
+
+const getAccomplishmentDateLabel = (item) => {
+  const parsedDate = Date.parse(String(item?.date ?? ''))
+  if (Number.isFinite(parsedDate) && parsedDate > 0) {
+    return new Date(parsedDate).toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      timeZone: 'UTC',
+    })
+  }
+
+  if (item?.year !== undefined && item?.year !== null && String(item.year).trim() !== '') {
+    return String(item.year)
+  }
+
+  return 'Recent'
+}
 
 const goToPreviousPage = () => {
   if (hasPreviousPage.value) {
@@ -271,5 +332,12 @@ const goToNextAccomplishmentPage = () => {
   background: rgba(245, 167, 0, 0.2);
   border-radius: 4px;
   padding: 0.05rem 0.25rem;
+}
+
+.achievement-date {
+  margin-left: 0.45rem;
+  color: var(--color-gray);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 </style>
