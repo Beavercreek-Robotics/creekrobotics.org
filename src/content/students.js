@@ -62,22 +62,22 @@ export const tracks = [
 
 export const testimonials = [
   {
-    text: "Being on the robotics team was the best decision I made in high school. The skills I learned - both technical and interpersonal - set me apart at college and in my first job. I genuinely could not recommend it more.",
-    author: "Alex M.",
-    role: "Class of 2023 · Now studying Mechanical Engineering at Ohio State",
-    initials: "AM",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+    author: "Lorem Ipsum",
+    role: "Placeholder Alumni Quote",
+    initials: "LI",
   },
   {
-    text: "I got my internship at an engineering company specifically because of the experience and projects I had from VRC. My interviewer said my robotics background showed I could work in a real engineering environment. That's something no classroom could've given me.",
-    author: "Sarah K.",
-    role: "Class of 2022 · Engineering Intern",
-    initials: "SK",
+    text: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    author: "Dolor Sit",
+    role: "Placeholder Alumni Quote",
+    initials: "DS",
   },
   {
-    text: "I had zero experience and was honestly terrified when I showed up to my first meeting. But the mentors and older students were so welcoming and patient. Six months later I was writing autonomous code for our competition robot. Don't let fear stop you.",
-    author: "Jordan T.",
-    role: "Current Member · 11th Grade",
-    initials: "JT",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+    author: "Amet Consectetur",
+    role: "Placeholder Student Quote",
+    initials: "AC",
   },
 ];
 
