@@ -1,5 +1,61 @@
 [
   {
+    "id": 177111,
+    "number": "45432A",
+    "teamName": "Circuit Breakers",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "Middle School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 177113,
+    "number": "45432R",
+    "teamName": "Aardvark Assassins",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "Middle School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 177112,
+    "number": "45432X",
+    "teamName": "The Enigmas",
+    "robotName": "",
+    "organization": "Beavercreek Robotics Club",
+    "grade": "Middle School",
+    "registered": true,
+    "location": {
+      "city": "Beavercreek",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
+    "id": 184272,
+    "number": "45432X",
+    "teamName": "Rogue Eclipse",
+    "robotName": "",
+    "organization": "BEAVERCREEK HIGH SCHOOL",
+    "grade": "Middle School",
+    "registered": false,
+    "location": {
+      "city": "Dayton",
+      "region": "Ohio",
+      "country": "United States"
+    }
+  },
+  {
     "id": 155320,
     "number": "45434A",
     "teamName": "Atomic",

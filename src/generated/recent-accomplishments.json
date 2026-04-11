@@ -66,6 +66,12 @@
     "year": 2026
   },
   {
+    "key": "250107-177111",
+    "icon": "⚙️",
+    "text": "Innovate Award (VRC/VEXU/VAIRC) — Showdown at the Peak - MS Competition: VEX V5 Robotics Competition Push Back (45432A)",
+    "year": 2026
+  },
+  {
     "key": "247095-171941",
     "icon": "🏆",
     "text": "Tournament Champions (VRC/VEXU/VAIRC) — Southwest Oaks Blended Qualifier: VEX V5 Robotics Competition Push Back (45434Y)",
@@ -75,6 +81,18 @@
     "key": "247096-171941",
     "icon": "⚙️",
     "text": "Design Award (VRC/VEXU/VAIRC) — Southwest Oaks Blended Qualifier: VEX V5 Robotics Competition Push Back (45434Y)",
+    "year": 2026
+  },
+  {
+    "key": "250103-177113",
+    "icon": "🏆",
+    "text": "Tournament Champions (VRC/VEXU/VAIRC) — Showdown at the Peak - MS Competition: VEX V5 Robotics Competition Push Back (45432R)",
+    "year": 2026
+  },
+  {
+    "key": "250104-177113",
+    "icon": "⚙️",
+    "text": "Design Award (VRC/VEXU/VAIRC) — Showdown at the Peak - MS Competition: VEX V5 Robotics Competition Push Back (45432R)",
     "year": 2026
   },
   {
@@ -111,6 +129,12 @@
     "key": "249252-171941",
     "icon": "🏆",
     "text": "Robot Skills Champion (VRC/VEXU/VAIRC) — Milford V5RC High School Qualifier; Milford, OH: VEX V5 Robotics Competition Push Back (45434Y)",
+    "year": 2026
+  },
+  {
+    "key": "246684-177113",
+    "icon": "🏆",
+    "text": "Tournament Champions (VRC/VEXU/VAIRC) — Milford V5RC Middle School Qualifier; Milford, OH: VEX V5 Robotics Competition Push Back (45432R)",
     "year": 2026
   },
   {
@@ -153,30 +177,6 @@
     "key": "248167-155322",
     "icon": "🤖",
     "text": "Tournament Finalists (VRC/VEXU/VAIRC) — Kalahari Classic V5RC HIGH SCHOOL Signature Event: High School - WORLDS QUALIFYING DIVISION (45434M)",
-    "year": 2026
-  },
-  {
-    "key": "248167-155325",
-    "icon": "🤖",
-    "text": "Tournament Finalists (VRC/VEXU/VAIRC) — Kalahari Classic V5RC HIGH SCHOOL Signature Event: High School - WORLDS QUALIFYING DIVISION (45434R)",
-    "year": 2026
-  },
-  {
-    "key": "248174-171941",
-    "icon": "🤖",
-    "text": "Build Award (VRC/VEXU/VAIRC) — Kalahari Classic V5RC HIGH SCHOOL Signature Event: High School - WORLDS QUALIFYING DIVISION (45434Y)",
-    "year": 2026
-  },
-  {
-    "key": "257344-155320",
-    "icon": "⚙️",
-    "text": "Design Award (VRC/VEXU/VAIRC) — Picktown Throwdown High School Qualifier: VEX V5 Robotics Competition Push Back (45434A)",
-    "year": 2026
-  },
-  {
-    "key": "257345-155326",
-    "icon": "🏆",
-    "text": "Robot Skills Champion (VRC/VEXU/VAIRC) — Picktown Throwdown High School Qualifier: VEX V5 Robotics Competition Push Back (45434H)",
     "year": 2026
   }
 ]

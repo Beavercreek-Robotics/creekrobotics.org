@@ -4,7 +4,7 @@ export default [
     "label": "Years Active"
   },
   {
-    "value": "12",
+    "value": "15",
     "label": "Teams This Season"
   },
   {
@@ -12,7 +12,7 @@ export default [
     "label": "Students Served"
   },
   {
-    "value": "146+",
+    "value": "164+",
     "label": "Awards Won"
   },
   {
