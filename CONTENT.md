@@ -156,24 +156,13 @@ export const BOARD = {
 }
 ```
 
-#### Competition schedule
-
-The schedule is generated from the RobotEvents API (`https://www.robotevents.com/api/v2/events`) and written to `src/generated/competition-schedule.json`.
-
-Required environment variable:
-
-```bash
-ROBOTEVENTS_API_TOKEN=...
-```
-
-`ROBOTEVENTS_API_TOKEN` must come from the runtime environment, such as your shell session or a GitHub Actions secret. The generator does not read that token from `.env.local`.
-
-Optional environment variable:
-
-```bash
-ROBOTEVENTS_SEASON_ID=...   # integer season ID to limit events
-ROBOTEVENTS_TEAM_PREFIXES=45434,12345   # comma-separated prefix override (optional)
-ROBOTEVENTS_TEAM_SUFFIX_DEPTH=1   # 0=prefix only, 1=prefix+1 char, 2=prefix+2 chars
+#### Competition schedule (static fallback)
+The `COMPETITION_SCHEDULE` array in `src/config/club.js` is used as a **fallback** when the Robot Events API is unavailable or returns no results.  Update it to reflect the current season so the site still shows accurate dates even when offline:
+```js
+export const COMPETITION_SCHEDULE = [
+  { date: '10/25/25', name: 'North Union High School Qualifier', location: '', status: 'upcoming' },
+  // ... more events
+]
 ```
 
 Team prefixes should be maintained in `src/config/club.js` via `TEAM_NUMBER_PREFIXES`.
@@ -182,6 +171,20 @@ Use `ROBOTEVENTS_TEAM_PREFIXES` only when you need a temporary runtime override.
 The generator script reads `.env.local` only for optional non-secret local overrides and uses runtime environment variables in GitHub Actions.
 
 Local Vite development uses the committed files in `src/generated/` unless you explicitly refresh them with `npm run generate:events`.
+
+#### Team number prefixes (Robot Events integration)
+`TEAM_NUMBERS` in `src/config/club.js` controls which teams are looked up on [robotevents.com](https://www.robotevents.com).  Every team whose robot-events number *starts with* one of these prefixes is included in live schedule lookups.
+
+```js
+export const TEAM_NUMBERS = ['45434']   // add more prefixes as new programs are created
+```
+
+The live schedule is fetched automatically from the [Robot Events API v2](https://www.robotevents.com/api/v2) on page load.  If the fetch succeeds the home page shows a green **Live** badge next to the schedule heading; if it fails or returns nothing it silently falls back to `COMPETITION_SCHEDULE`.
+
+To enable an API key (which removes rate-limiting):
+1. Copy `.env.example` → `.env.local`
+2. Set `VITE_ROBOTEVENTS_API_KEY=<your-token>`
+3. For GitHub Actions deployments add the secret as `VITE_ROBOTEVENTS_API_KEY` in your repo/org secrets.
 
 #### Sponsorship tiers
 
@@ -231,8 +234,9 @@ Find the `<HeroSection>` tag near the top of the `<template>` section:
 ```
 
 #### Competition schedule
+The competition dates shown on the home page are fetched live from the Robot Events API using the `TEAM_NUMBERS` prefixes in `src/config/club.js`.  If the API is unreachable the page automatically falls back to the static `COMPETITION_SCHEDULE` array in the same config file.
 
-Update your RobotEvents data and re-run the generator (`npm run generate:events`). The home page reads `src/generated/competition-schedule.json` automatically during local builds and GitHub Actions deployments.
+To force static content only, simply clear `TEAM_NUMBERS` or leave the API key unset — the page will always display whatever is in `COMPETITION_SCHEDULE`.
 
 #### Achievements list
 
