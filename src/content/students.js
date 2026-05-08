@@ -25,7 +25,7 @@ export const tracks = [
     // TODO (pre-launch): Replace this description and skills list with VRC-appropriate content.
     // The previous content incorrectly listed FRC (FIRST Robotics Competition) tools.
     // VEX teams use VEXcode Pro / PROS, C++ or Python for VEX V5, VEX sensors and controllers.
-    // See STATIC-CONTENT-REVIEW.md → "Programming Track Skills (VRC vs. FRC Mismatch)".
+    // See STATIC-CONTENT-REVIEW.md → "Programming & Electrical Track Skills (VRC vs. FRC Mismatch)".
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     skills: [
@@ -42,7 +42,7 @@ export const tracks = [
     // TODO (pre-launch): Update skills list to VRC-appropriate electrical content.
     // "Motor controllers (REV, CTRE)" and "CAN bus and networking" reference FRC vendors and
     // FRC-specific wiring; VEX V5 uses integrated Smart Motors and the VEX V5 brain.
-    // See STATIC-CONTENT-REVIEW.md → "Programming Track Skills (VRC vs. FRC Mismatch)".
+    // See STATIC-CONTENT-REVIEW.md → "Programming & Electrical Track Skills (VRC vs. FRC Mismatch)".
     description:
       "Design and wire the robot's entire electrical system safely and reliably.",
     skills: [
