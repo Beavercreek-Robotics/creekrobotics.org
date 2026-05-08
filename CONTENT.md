@@ -12,6 +12,7 @@ This document explains how to update the website content for each page. You do n
 2. [How to Run & Build](#how-to-run--build)
 3. [Club Configuration File](#club-configuration-file) ← **Start here for most updates**
 4. [Updating Each Page](#updating-each-page)
+5. [Static Content Review](./STATIC-CONTENT-REVIEW.md) ← **Placeholder items and periodic update schedule**
    - [Home Page](#home-page)
    - [For Parents](#for-parents)
    - [For Students](#for-students)

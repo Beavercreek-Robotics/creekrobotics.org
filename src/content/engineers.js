@@ -25,11 +25,13 @@ export const whyMentor = [
   },
 ];
 
+// TODO (pre-launch): Replace these placeholder values with real, verified figures.
+// See STATIC-CONTENT-REVIEW.md → "Mentor Impact Statistics" for details.
 export const impactStats = [
-  { value: "1:4", label: "Mentor-to-Student Ratio" },
-  { value: "90%", label: "Alumni Pursue STEM Careers" },
-  { value: "5+", label: "Average Mentor Tenure (Years)" },
-  { value: "100%", label: "Of Mentors Recommend It" },
+  { value: "X:Y", label: "Mentor-to-Student Ratio" },
+  { value: "XX%", label: "Alumni Pursue STEM Careers" },
+  { value: "X+", label: "Average Mentor Tenure (Years)" },
+  { value: "XX%", label: "Of Mentors Recommend It" },
 ];
 
 export const mentorTypes = [
@@ -152,17 +154,19 @@ export const getStartedSteps = [
   },
 ];
 
+// TODO (pre-launch): Replace these placeholder quotes with real, attributed quotes
+// from verified current mentors. See STATIC-CONTENT-REVIEW.md → "Mentor Testimonials".
 export const mentorTestimonials = [
   {
-    text: "I've been mentoring for 5 years and it's incredibly rewarding. Watching a freshman who couldn't use a drill become a senior who's leading our mechanical sub-team - that's something I'll treasure for the rest of my life.",
-    author: "Dave R.",
-    role: "Mechanical Engineer, 5-Year Mentor",
-    initials: "DR",
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    author: "Lorem Ipsum",
+    role: "Placeholder Mentor Quote",
+    initials: "LI",
   },
   {
-    text: "These kids are brilliant. I came in thinking I'd teach them Java, and within two months I was learning from them. Their energy and creativity keep me inspired. It's easily the best volunteer work I've ever done.",
-    author: "Lisa M.",
-    role: "Software Engineer, 3-Year Mentor",
-    initials: "LM",
+    text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    author: "Dolor Sit",
+    role: "Placeholder Mentor Quote",
+    initials: "DS",
   },
 ];
