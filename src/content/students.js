@@ -22,25 +22,33 @@ export const tracks = [
   {
     icon: "💻",
     name: "Programming",
+    // TODO (pre-launch): Replace this description and skills list with VRC-appropriate content.
+    // The previous content incorrectly listed FRC (FIRST Robotics Competition) tools.
+    // VEX teams use VEXcode Pro / PROS, C++ or Python for VEX V5, VEX sensors and controllers.
+    // See STATIC-CONTENT-REVIEW.md → "Programming & Electrical Track Skills (VRC vs. FRC Mismatch)".
     description:
-      "Write the code that brings the robot to life - from autonomous routines to teleoperated controls.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     skills: [
-      "Java and Python programming",
-      "WPILib robotics framework",
-      "PID control and sensor integration",
-      "Computer vision (OpenCV)",
-      "Git version control",
+      "Lorem ipsum — VRC programming language (C++/Python/Blocks)",
+      "Dolor sit amet — robot autonomy and control",
+      "Consectetur adipiscing — VEX V5 sensor integration",
+      "Sed do eiusmod — driver control and operator interface",
+      "Tempor incididunt — version control and documentation",
     ],
   },
   {
     icon: "⚡",
     name: "Electrical",
+    // TODO (pre-launch): Update skills list to VRC-appropriate electrical content.
+    // "Motor controllers (REV, CTRE)" and "CAN bus and networking" reference FRC vendors and
+    // FRC-specific wiring; VEX V5 uses integrated Smart Motors and the VEX V5 brain.
+    // See STATIC-CONTENT-REVIEW.md → "Programming & Electrical Track Skills (VRC vs. FRC Mismatch)".
     description:
       "Design and wire the robot's entire electrical system safely and reliably.",
     skills: [
       "Wiring and cable management",
-      "Motor controllers (REV, CTRE)",
-      "CAN bus and networking",
+      "Lorem ipsum — VEX V5 motor and sensor wiring",
+      "Dolor sit amet — VEX V5 brain and power distribution",
       "Pneumatics controls",
       "Electronics troubleshooting",
     ],
@@ -60,6 +68,9 @@ export const tracks = [
   },
 ];
 
+// TODO (pre-launch): Replace these Lorem Ipsum placeholders with real student quotes.
+// Use first name and graduation year only for privacy (e.g. "Alex J., Class of '25").
+// See STATIC-CONTENT-REVIEW.md → "Student Testimonials".
 export const testimonials = [
   {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
